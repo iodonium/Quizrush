@@ -6,12 +6,12 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>QuizVerse Dashboard</title>
+<title>QuizVerse</title>
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
 rel="stylesheet">
 
 <style>
@@ -20,88 +20,81 @@ rel="stylesheet">
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Fredoka',sans-serif;
+    font-family:'Poppins',sans-serif;
+    -webkit-tap-highlight-color:transparent;
 }
 
 body{
 
-    min-height:100vh;
-
-    overflow:hidden;
-
     background:
     linear-gradient(
-    135deg,
-    #60a5fa,
-    #a78bfa,
-    #f472b6,
-    #facc15
+    180deg,
+    #07111f,
+    #0f172a,
+    #111827
     );
 
-    background-size:400% 400%;
+    color:white;
 
-    animation:bgMove 12s infinite alternate;
+    min-height:100vh;
+
+    overflow-y:auto;
 }
 
-@keyframes bgMove{
-
-    0%{
-        background-position:left;
-    }
-
-    100%{
-        background-position:right;
-    }
+body::-webkit-scrollbar{
+    width:0;
 }
 
-.bubbles{
+.bg{
 
     position:fixed;
-
     inset:0;
-
     overflow:hidden;
-
     z-index:0;
 }
 
-.bubbles span{
+.glow{
 
     position:absolute;
 
-    display:block;
-
     border-radius:50%;
 
-    background:
-    rgba(255,255,255,0.2);
+    filter:blur(90px);
 
-    animation:float 18s linear infinite;
+    opacity:0.28;
 }
 
-@keyframes float{
+.glow1{
 
-    0%{
+    width:260px;
+    height:260px;
 
-        transform:
-        translateY(0)
-        rotate(0deg);
+    background:#06b6d4;
 
-        opacity:0;
-    }
+    top:-40px;
+    left:-40px;
+}
 
-    20%{
-        opacity:1;
-    }
+.glow2{
 
-    100%{
+    width:240px;
+    height:240px;
 
-        transform:
-        translateY(-1200px)
-        rotate(720deg);
+    background:#3b82f6;
 
-        opacity:0;
-    }
+    right:-50px;
+    top:25%;
+}
+
+.glow3{
+
+    width:220px;
+    height:220px;
+
+    background:#8b5cf6;
+
+    bottom:0;
+    left:30%;
 }
 
 .container{
@@ -111,35 +104,8 @@ body{
     z-index:2;
 
     width:100%;
-    min-height:100vh;
 
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
-}
-
-.glass{
-
-    width:100%;
-    max-width:950px;
-
-    padding:35px;
-
-    border-radius:40px;
-
-    background:
-    rgba(255,255,255,0.18);
-
-    backdrop-filter:blur(20px);
-
-    border:
-    2px solid rgba(255,255,255,0.25);
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,0.2);
+    padding:14px;
 }
 
 .topbar{
@@ -150,251 +116,326 @@ body{
 
     align-items:center;
 
-    margin-bottom:40px;
+    margin-bottom:18px;
+}
+
+.xp{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    padding:12px 18px;
+
+    border-radius:18px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.25);
 }
 
 .profile{
 
-    width:80px;
-    height:80px;
+    width:64px;
+    height:64px;
 
     border-radius:50%;
 
     overflow:hidden;
 
-    border:4px solid white;
+    border:3px solid #38bdf8;
+
+    box-shadow:
+    0 0 25px rgba(56,189,248,0.5);
 
     cursor:pointer;
-
-    transition:0.3s;
-}
-
-.profile:hover{
-
-    transform:scale(1.08);
 }
 
 .profile img{
 
     width:100%;
     height:100%;
+
     object-fit:cover;
 }
 
-.xp{
+.hero{
 
-    background:white;
+    margin-top:10px;
 
-    padding:15px 25px;
-
-    border-radius:50px;
-
-    font-size:24px;
-
-    font-weight:700;
-
-    color:#ff4fa3;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.15);
-}
-
-.center{
-
-    text-align:center;
+    margin-bottom:22px;
 }
 
 .title{
 
-    font-size:72px;
+    font-size:42px;
 
-    color:white;
+    line-height:1.05;
 
-    margin-bottom:10px;
+    font-weight:700;
 
-    text-shadow:
-    0 5px 0 #ff4fa3,
-    0 10px 25px rgba(0,0,0,0.2);
+    background:
+    linear-gradient(
+    90deg,
+    #38bdf8,
+    #60a5fa,
+    #818cf8
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 }
 
 .subtitle{
 
-    color:white;
+    margin-top:10px;
 
-    font-size:22px;
+    color:#94a3b8;
 
-    margin-bottom:40px;
+    font-size:15px;
+
+    line-height:1.5;
 }
 
 .login-btn{
 
+    width:100%;
+
+    margin-top:24px;
+
     border:none;
 
-    padding:18px 35px;
+    background:
+    linear-gradient(
+    90deg,
+    #06b6d4,
+    #3b82f6
+    );
+
+    color:white;
+
+    padding:18px;
 
     border-radius:22px;
 
-    background:white;
-
-    color:#6366f1;
-
-    font-size:24px;
+    font-size:18px;
 
     font-weight:700;
 
     cursor:pointer;
 
-    transition:0.3s;
-
     box-shadow:
-    0 15px 30px rgba(0,0,0,0.18);
+    0 12px 30px rgba(59,130,246,0.35);
 
-    margin-bottom:40px;
+    transition:0.25s;
 }
 
-.login-btn:hover{
+.login-btn:active{
 
-    transform:
-    translateY(-5px)
-    scale(1.03);
+    transform:scale(0.97);
 }
 
 .grid{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:1fr;
 
-    gap:25px;
+    gap:16px;
+
+    margin-top:22px;
+
+    padding-bottom:40px;
 }
 
 .card{
 
+    position:relative;
+
+    overflow:hidden;
+
     border:none;
 
-    border-radius:30px;
+    border-radius:28px;
 
-    padding:30px;
-
-    cursor:pointer;
+    padding:22px;
 
     text-align:left;
 
     color:white;
 
-    transition:0.3s;
+    cursor:pointer;
+
+    transition:0.25s;
+
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
 
     box-shadow:
-    0 15px 30px rgba(0,0,0,0.18);
+    0 15px 35px rgba(0,0,0,0.3);
 }
 
-.card:hover{
+.card:active{
 
-    transform:
-    translateY(-8px)
-    scale(1.03);
+    transform:scale(0.98);
 }
 
-.card-icon{
+.card::before{
 
-    font-size:60px;
+    content:'';
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    top:-70px;
+    right:-70px;
+}
+
+.c1{
+    background:
+    linear-gradient(
+    135deg,
+    #0284c7,
+    #38bdf8
+    );
+}
+
+.c2{
+    background:
+    linear-gradient(
+    135deg,
+    #4338ca,
+    #6366f1
+    );
+}
+
+.c3{
+    background:
+    linear-gradient(
+    135deg,
+    #0f766e,
+    #14b8a6
+    );
+}
+
+.c4{
+    background:
+    linear-gradient(
+    135deg,
+    #1d4ed8,
+    #2563eb
+    );
+}
+
+.icon{
+
+    font-size:52px;
+
+    position:relative;
+
+    z-index:2;
 }
 
 .card h2{
 
-    margin-top:15px;
+    margin-top:14px;
 
-    font-size:28px;
+    font-size:24px;
+
+    position:relative;
+
+    z-index:2;
 }
 
 .card p{
 
-    margin-top:10px;
+    margin-top:8px;
+
+    color:
+    rgba(255,255,255,0.9);
+
+    font-size:14px;
 
     line-height:1.5;
 
-    font-size:16px;
+    position:relative;
+
+    z-index:2;
 }
 
-.blue{
-
-    background:
-    linear-gradient(
-    135deg,
-    #3b82f6,
-    #60a5fa
-    );
-}
-
-.purple{
-
-    background:
-    linear-gradient(
-    135deg,
-    #8b5cf6,
-    #a78bfa
-    );
-}
-
-.pink{
-
-    background:
-    linear-gradient(
-    135deg,
-    #ec4899,
-    #f472b6
-    );
-}
-
-.green{
-
-    background:
-    linear-gradient(
-    135deg,
-    #10b981,
-    #34d399
-    );
-}
-
-.music-btn{
+.music{
 
     position:fixed;
 
-    right:20px;
-    bottom:20px;
+    right:16px;
+    bottom:16px;
 
-    width:70px;
-    height:70px;
+    width:62px;
+    height:62px;
 
     border:none;
 
     border-radius:50%;
 
-    background:white;
+    background:
+    linear-gradient(
+    135deg,
+    #0ea5e9,
+    #2563eb
+    );
 
-    font-size:28px;
+    color:white;
+
+    font-size:24px;
 
     cursor:pointer;
 
-    z-index:5;
+    z-index:10;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,0.2);
+    0 12px 30px rgba(59,130,246,0.4);
 }
 
 .hidden{
     display:none;
 }
 
-@media(max-width:700px){
+@media(min-width:700px){
 
-    .title{
-        font-size:48px;
+    .container{
+
+        max-width:700px;
+
+        margin:auto;
+
+        padding-top:25px;
     }
 
-    .glass{
-        padding:25px;
+    .title{
+        font-size:60px;
+    }
+
+    .grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 }
 
@@ -403,38 +444,25 @@ body{
 
 <body>
 
-<div class="bubbles">
+<div class="bg">
 
-<span style="left:10%; width:80px; height:80px; animation-duration:15s;"></span>
-
-<span style="left:30%; width:60px; height:60px; animation-duration:18s;"></span>
-
-<span style="left:50%; width:120px; height:120px; animation-duration:20s;"></span>
-
-<span style="left:70%; width:50px; height:50px; animation-duration:12s;"></span>
-
-<span style="left:90%; width:100px; height:100px; animation-duration:22s;"></span>
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+<div class="glow glow3"></div>
 
 </div>
 
-<audio id="bgMusic"
-loop>
-
+<audio id="bgm" loop>
 <source src="bgm.mp3"
 type="audio/mpeg">
-
 </audio>
 
-<audio id="clickSound">
-
+<audio id="click">
 <source src="click.mp3"
 type="audio/mpeg">
-
 </audio>
 
 <div class="container">
-
-<div class="glass">
 
 <div class="topbar">
 
@@ -453,47 +481,49 @@ src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
 </div>
 
-<div class="center">
+<div class="hero">
 
 <h1 class="title">
-🌈 QuizVerse
+QuizVerse
 </h1>
 
 <p class="subtitle">
-Cute Multiplayer Quiz Experience
+Multiplayer flag, country and currency battle experience.
 </p>
 
 <button class="login-btn"
 id="loginBtn">
 
-✨ Login With Google
+Login With Google
 
 </button>
+
+</div>
 
 <div class="grid hidden"
 id="menu">
 
-<button class="card blue"
+<button class="card c1"
 onclick="goPage('computer.html')">
 
-<div class="card-icon">
+<div class="icon">
 🤖
 </div>
 
 <h2>
-Play With Computer
+Play vs AI
 </h2>
 
 <p>
-Battle AI quiz masters.
+Practice quiz battles against smart bots.
 </p>
 
 </button>
 
-<button class="card purple"
+<button class="card c2"
 onclick="goPage('multiplayer.html')">
 
-<div class="card-icon">
+<div class="icon">
 👥
 </div>
 
@@ -502,15 +532,15 @@ Multiplayer
 </h2>
 
 <p>
-Play online with players.
+Compete with real players online.
 </p>
 
 </button>
 
-<button class="card pink"
+<button class="card c3"
 onclick="goPage('leaderboard.html')">
 
-<div class="card-icon">
+<div class="icon">
 🏆
 </div>
 
@@ -519,15 +549,15 @@ Leaderboard
 </h2>
 
 <p>
-See top ranked players.
+Track rankings and top players.
 </p>
 
 </button>
 
-<button class="card green"
+<button class="card c4"
 onclick="goPage('settings.html')">
 
-<div class="card-icon">
+<div class="icon">
 ⚙️
 </div>
 
@@ -536,7 +566,7 @@ Settings
 </h2>
 
 <p>
-Customize your profile.
+Manage sound, account and profile.
 </p>
 
 </button>
@@ -545,11 +575,7 @@ Customize your profile.
 
 </div>
 
-</div>
-
-</div>
-
-<button class="music-btn"
+<button class="music"
 onclick="toggleMusic()">
 
 🎵
@@ -624,41 +650,41 @@ getFirestore(app);
 const provider =
 new GoogleAuthProvider();
 
-const bgMusic =
-document.getElementById("bgMusic");
+const bgm =
+document.getElementById("bgm");
 
-const clickSound =
-document.getElementById("clickSound");
+const click =
+document.getElementById("click");
 
-function playClick(){
+function sound(){
 
-clickSound.currentTime = 0;
+click.currentTime = 0;
 
-clickSound.play();
+click.play();
 }
 
 window.goPage = function(page){
 
-playClick();
+sound();
 
 setTimeout(()=>{
 
 window.location.href = page;
 
-},150);
+},120);
 };
 
 window.toggleMusic = function(){
 
-playClick();
+sound();
 
-if(bgMusic.paused){
+if(bgm.paused){
 
-bgMusic.play();
+bgm.play();
 
 }else{
 
-bgMusic.pause();
+bgm.pause();
 }
 };
 
@@ -785,52 +811,12 @@ document.addEventListener(
 "click",
 ()=>{
 
-bgMusic.play()
+bgm.play()
 .catch(()=>{});
 
 },{
 once:true
 });
-
-document.addEventListener(
-"contextmenu",
-e => e.preventDefault()
-);
-
-document.onkeydown = function(e){
-
-if(
-
-e.keyCode == 123 ||
-
-(
-e.ctrlKey &&
-e.shiftKey &&
-e.keyCode == 73
-) ||
-
-(
-e.ctrlKey &&
-e.shiftKey &&
-e.keyCode == 74
-) ||
-
-(
-e.ctrlKey &&
-e.keyCode == 85
-)
-
-){
-
-return false;
-}
-};
-
-setInterval(()=>{
-
-console.clear();
-
-},1000);
 
 </script>
 
