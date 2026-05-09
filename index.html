@@ -38,9 +38,9 @@ body{
     background:
     linear-gradient(
     180deg,
-    #13082c,
-    #0e1538,
-    #091423
+    #090b1a,
+    #111827,
+    #0f172a
     );
 
     color:white;
@@ -58,7 +58,7 @@ body::-webkit-scrollbar{
     z-index:0;
 }
 
-.wave{
+.glow{
 
     position:absolute;
 
@@ -66,50 +66,50 @@ body::-webkit-scrollbar{
 
     filter:blur(110px);
 
-    opacity:0.55;
+    opacity:0.5;
 }
 
-.w1{
-
-    width:380px;
-    height:380px;
-
-    background:#8b5cf6;
-
-    top:-100px;
-    left:-120px;
-}
-
-.w2{
-
-    width:420px;
-    height:420px;
-
-    background:#06b6d4;
-
-    top:25%;
-    right:-150px;
-}
-
-.w3{
+.g1{
 
     width:300px;
     height:300px;
 
-    background:#ec4899;
+    background:#8b5cf6;
 
-    bottom:-80px;
-    left:-80px;
+    top:-120px;
+    left:-100px;
 }
 
-.w4{
+.g2{
+
+    width:350px;
+    height:350px;
+
+    background:#06b6d4;
+
+    right:-120px;
+    top:20%;
+}
+
+.g3{
 
     width:280px;
     height:280px;
 
-    background:#f59e0b;
+    background:#ec4899;
 
-    bottom:5%;
+    bottom:-80px;
+    left:-100px;
+}
+
+.g4{
+
+    width:260px;
+    height:260px;
+
+    background:#3b82f6;
+
+    bottom:10%;
     right:-90px;
 }
 
@@ -124,9 +124,9 @@ body::-webkit-scrollbar{
     transparent 1px
     );
 
-    background-size:38px 38px;
+    background-size:35px 35px;
 
-    opacity:0.28;
+    opacity:0.18;
 }
 
 .container{
@@ -137,7 +137,7 @@ body::-webkit-scrollbar{
 
     width:100%;
 
-    padding:20px 18px 50px;
+    padding:18px 18px 120px;
 }
 
 .topbar{
@@ -159,37 +159,63 @@ body::-webkit-scrollbar{
 
     gap:10px;
 
+    padding:12px 18px;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(15px);
+
+    border:
+    1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
+}
+
+.star{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     background:
     linear-gradient(
     135deg,
-    #fde68a,
-    #fbbf24
+    #f59e0b,
+    #facc15
     );
 
-    padding:14px 22px;
-
-    border-radius:26px;
-
-    box-shadow:
-    0 10px 30px rgba(251,191,36,0.35);
-
-    border:
-    2px solid rgba(255,255,255,0.25);
-}
-
-.xp span{
+    color:#111827;
 
     font-size:20px;
 
+    box-shadow:
+    0 0 20px rgba(250,204,21,0.4);
+}
+
+.xp-text{
+
+    font-size:22px;
+
     font-weight:800;
 
-    color:#7c2d12;
+    color:white;
 }
 
 .profile{
 
-    width:82px;
-    height:82px;
+    width:74px;
+    height:74px;
 
     border-radius:50%;
 
@@ -198,7 +224,7 @@ body::-webkit-scrollbar{
     border:4px solid #67e8f9;
 
     box-shadow:
-    0 0 35px rgba(103,232,249,0.7);
+    0 0 28px rgba(103,232,249,0.6);
 
     cursor:pointer;
 }
@@ -213,12 +239,12 @@ body::-webkit-scrollbar{
 
 .hero{
 
-    margin-bottom:26px;
+    margin-bottom:24px;
 }
 
 .logo{
 
-    font-size:68px;
+    font-size:62px;
 
     font-weight:800;
 
@@ -231,7 +257,6 @@ body::-webkit-scrollbar{
     90deg,
     #ff6b6b,
     #f59e0b,
-    #84cc16,
     #22c55e,
     #38bdf8,
     #8b5cf6,
@@ -240,17 +265,14 @@ body::-webkit-scrollbar{
 
     background-size:400% 400%;
 
-    animation:gradientMove 8s ease infinite;
+    animation:move 8s ease infinite;
 
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
-
-    text-shadow:
-    0 0 25px rgba(255,255,255,0.3);
 }
 
-@keyframes gradientMove{
+@keyframes move{
 
     0%{
         background-position:0% 50%;
@@ -271,11 +293,9 @@ body::-webkit-scrollbar{
 
     font-size:18px;
 
-    line-height:1.6;
+    line-height:1.7;
 
-    color:rgba(255,255,255,0.9);
-
-    max-width:500px;
+    color:rgba(255,255,255,0.88);
 }
 
 .login-btn{
@@ -290,13 +310,15 @@ body::-webkit-scrollbar{
 
     padding:18px;
 
-    border-radius:24px;
+    border-radius:26px;
 
     font-size:18px;
 
     font-weight:700;
 
     color:white;
+
+    cursor:pointer;
 
     background:
     linear-gradient(
@@ -306,16 +328,13 @@ body::-webkit-scrollbar{
     );
 
     box-shadow:
-    0 12px 35px rgba(139,92,246,0.4);
+    0 14px 35px rgba(139,92,246,0.4);
 
-    cursor:pointer;
-
-    transition:0.25s;
+    transition:0.2s;
 }
 
 .login-btn:active{
-
-    transform:scale(0.97);
+    transform:scale(0.98);
 }
 
 .grid{
@@ -337,27 +356,24 @@ body::-webkit-scrollbar{
 
     border-radius:38px;
 
-    padding:28px;
+    padding:26px;
 
-    min-height:260px;
+    min-height:240px;
 
     text-align:left;
 
-    color:white;
-
     cursor:pointer;
 
-    transition:0.25s;
+    transition:0.2s;
+
+    border:
+    1px solid rgba(255,255,255,0.15);
 
     box-shadow:
     0 18px 40px rgba(0,0,0,0.35);
-
-    border:
-    2px solid rgba(255,255,255,0.18);
 }
 
 .card:active{
-
     transform:scale(0.985);
 }
 
@@ -367,8 +383,8 @@ body::-webkit-scrollbar{
 
     position:absolute;
 
-    width:230px;
-    height:230px;
+    width:220px;
+    height:220px;
 
     border-radius:50%;
 
@@ -381,7 +397,7 @@ body::-webkit-scrollbar{
 
 .card img{
 
-    width:110px;
+    width:100px;
 
     position:relative;
 
@@ -389,7 +405,7 @@ body::-webkit-scrollbar{
 
     filter:
     drop-shadow(
-    0 8px 18px rgba(0,0,0,0.35)
+    0 10px 18px rgba(0,0,0,0.35)
     );
 }
 
@@ -397,28 +413,28 @@ body::-webkit-scrollbar{
 
     position:absolute;
 
-    right:18px;
+    right:16px;
     top:16px;
 
-    width:130px !important;
+    width:120px !important;
 }
 
 .card h2{
 
-    margin-top:26px;
+    margin-top:24px;
 
     font-size:28px;
 
-    line-height:1.15;
+    line-height:1.2;
 
     font-weight:800;
-
-    text-shadow:
-    0 5px 12px rgba(0,0,0,0.4);
 
     position:relative;
 
     z-index:2;
+
+    text-shadow:
+    0 5px 10px rgba(0,0,0,0.4);
 }
 
 .card p{
@@ -462,15 +478,15 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     135deg,
-    #d97706,
-    #fde68a
+    #f59e0b,
+    #fde047
     );
 
-    color:#3f2200;
+    color:#4a2500;
 }
 
 .c3 p{
-    color:#5b3100;
+    color:#5f3700;
 }
 
 .c4{
@@ -487,15 +503,99 @@ body::-webkit-scrollbar{
     display:none;
 }
 
-.footer{
+.bottom-nav{
 
-    margin-top:35px;
+    position:fixed;
 
-    text-align:center;
+    left:0;
+    right:0;
+    bottom:0;
 
-    color:rgba(255,255,255,0.55);
+    z-index:100;
 
-    font-size:14px;
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    padding:14px 10px calc(14px + env(safe-area-inset-bottom));
+
+    background:
+    rgba(8,15,30,0.82);
+
+    backdrop-filter:blur(20px);
+
+    border-top:
+    1px solid rgba(255,255,255,0.1);
+}
+
+.nav-btn{
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    opacity:0.78;
+}
+
+.nav-btn.active{
+    opacity:1;
+}
+
+.nav-icon{
+
+    width:52px;
+    height:52px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.active .nav-icon{
+
+    background:
+    linear-gradient(
+    135deg,
+    #06b6d4,
+    #8b5cf6
+    );
+
+    box-shadow:
+    0 10px 25px rgba(139,92,246,0.35);
+}
+
+.footer-space{
+    height:30px;
 }
 
 @media(min-width:700px){
@@ -507,14 +607,14 @@ body::-webkit-scrollbar{
         margin:auto;
     }
 
-    .logo{
-        font-size:86px;
-    }
-
     .grid{
 
         grid-template-columns:
         repeat(2,1fr);
+    }
+
+    .logo{
+        font-size:82px;
     }
 }
 
@@ -525,10 +625,10 @@ body::-webkit-scrollbar{
 
 <div class="bg">
 
-<div class="wave w1"></div>
-<div class="wave w2"></div>
-<div class="wave w3"></div>
-<div class="wave w4"></div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
+<div class="glow g4"></div>
 
 <div class="stars"></div>
 
@@ -550,13 +650,13 @@ type="audio/mpeg">
 
 <div class="xp">
 
-<div style="font-size:34px">
+<div class="star">
 ⭐
 </div>
 
-<span>
+<div class="xp-text">
 XP: <span id="xp">0</span>
-</span>
+</div>
 
 </div>
 
@@ -577,7 +677,7 @@ QuizRush
 </h1>
 
 <p class="subtitle">
-Multiplayer flag, country and currency battle experience for kids!
+Multiplayer flag, country and currency battle experience for kids.
 </p>
 
 <button class="login-btn"
@@ -605,7 +705,7 @@ PLAY VS BOT-PAL
 </h2>
 
 <p>
-Play quiz battles against friendly bots!
+Play quiz battles against friendly bots.
 </p>
 
 </button>
@@ -623,7 +723,7 @@ MULTIPLAYER PARTY
 </h2>
 
 <p>
-Compete with friends online for fun prizes!
+Compete with friends online for fun prizes.
 </p>
 
 </button>
@@ -638,31 +738,66 @@ LEADERBOARDS
 </h2>
 
 <p>
-Global rankings - See where you and your friends stand!
+See top players and global rankings.
 </p>
 
 </button>
 
 <button class="card c4"
-onclick="goPage('settings.html')">
+onclick="goPage('friends.html')">
 
-<img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png">
+<img src="https://cdn-icons-png.flaticon.com/512/681/681494.png">
 
 <h2>
-SETTINGS
+FRIENDS
 </h2>
 
 <p>
-Customize sounds, profile and gameplay settings.
+Add friends and challenge them online.
 </p>
 
 </button>
 
 </div>
 
-<div class="footer">
-QuizRush © 2025
+<div class="footer-space"></div>
+
 </div>
+
+<div class="bottom-nav">
+
+<button class="nav-btn active"
+onclick="goPage('dashboard.html')">
+
+<div class="nav-icon">
+🏠
+</div>
+
+Home
+
+</button>
+
+<button class="nav-btn"
+onclick="goPage('leaderboard.html')">
+
+<div class="nav-icon">
+🏆
+</div>
+
+Leaderboard
+
+</button>
+
+<button class="nav-btn"
+onclick="goPage('friends.html')">
+
+<div class="nav-icon">
+👥
+</div>
+
+Friends
+
+</button>
 
 </div>
 
@@ -671,6 +806,10 @@ QuizRush © 2025
 import { initializeApp }
 from
 "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import { getAnalytics }
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
 
 import {
 
@@ -703,27 +842,33 @@ from
 const firebaseConfig = {
 
 apiKey:
-"YOUR_API_KEY",
+"AIzaSyB5KdyKgHVuvmKRhu-tQQKaBsbUH9-Pz-E",
 
 authDomain:
-"YOUR_AUTH_DOMAIN",
+"iodonium-r-ea28a.firebaseapp.com",
 
 projectId:
-"YOUR_PROJECT_ID",
+"iodonium-r-ea28a",
 
 storageBucket:
-"YOUR_STORAGE_BUCKET",
+"iodonium-r-ea28a.firebasestorage.app",
 
 messagingSenderId:
-"YOUR_SENDER_ID",
+"556058248851",
 
 appId:
-"YOUR_APP_ID"
+"1:556058248851:web:132044a66f3095646c6f66",
+
+measurementId:
+"G-Y71J98XK25"
 
 };
 
 const app =
 initializeApp(firebaseConfig);
+
+const analytics =
+getAnalytics(app);
 
 const auth =
 getAuth(app);
@@ -739,6 +884,10 @@ document.getElementById("bgm");
 
 const click =
 document.getElementById("click");
+
+bgm.volume = 0.35;
+
+click.volume = 0.6;
 
 function playClick(){
 
@@ -795,6 +944,8 @@ user.photoURL,
 
 xp:0,
 
+friends:[],
+
 createdAt:
 Date.now()
 
@@ -824,8 +975,6 @@ document
 document
 .getElementById("loginBtn")
 .classList.add("hidden");
-
-bgm.volume = 0.4;
 
 bgm.play();
 
@@ -875,8 +1024,6 @@ document
 document
 .getElementById("loginBtn")
 .classList.add("hidden");
-
-bgm.volume = 0.4;
 
 bgm.play()
 .catch(()=>{});
