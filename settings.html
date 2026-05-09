@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>QuizRush Settings</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Baloo 2',cursive;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+    180deg,
+    #1a0933,
+    #111827,
+    #09111f
+    );
+
+    color:white;
+}
+
+/* BACKGROUND */
+
+.bg{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.blur{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.5;
+}
+
+.b1{
+
+    width:300px;
+    height:300px;
+
+    background:#8b5cf6;
+
+    top:-100px;
+    left:-100px;
+}
+
+.b2{
+
+    width:320px;
+    height:320px;
+
+    background:#06b6d4;
+
+    right:-120px;
+    top:20%;
+}
+
+.b3{
+
+    width:250px;
+    height:250px;
+
+    background:#ec4899;
+
+    bottom:-80px;
+    left:-70px;
+}
+
+.stars{
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+    radial-gradient(
+    rgba(255,255,255,0.8) 1px,
+    transparent 1px
+    );
+
+    background-size:40px 40px;
+
+    opacity:0.12;
+}
+
+/* CONTAINER */
+
+.container{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    padding:18px 18px 40px;
+}
+
+/* HEADER */
+
+.header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:30px;
+}
+
+.back-btn{
+
+    width:52px;
+    height:52px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(16px);
+
+    border:
+    2px solid rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.3);
+}
+
+.back-btn:active{
+
+    transform:scale(0.95);
+}
+
+.title{
+
+    font-size:38px;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+    90deg,
+    #38bdf8,
+    #8b5cf6,
+    #ec4899
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* CARD */
+
+.card{
+
+    background:
+    rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(18px);
+
+    border:
+    2px solid rgba(255,255,255,0.08);
+
+    border-radius:32px;
+
+    padding:24px;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* PROFILE */
+
+.profile-wrap{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin-bottom:24px;
+}
+
+.profile{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:4px solid #67e8f9;
+
+    box-shadow:
+    0 0 35px rgba(103,232,249,0.5);
+}
+
+.profile img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.change-btn{
+
+    margin-top:16px;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:18px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #06b6d4,
+    #8b5cf6
+    );
+
+    box-shadow:
+    0 10px 25px rgba(139,92,246,0.35);
+}
+
+.change-btn:active{
+
+    transform:scale(0.97);
+}
+
+/* INPUTS */
+
+.label{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    display:block;
+}
+
+.input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    padding:16px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    2px solid rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:17px;
+
+    margin-bottom:22px;
+}
+
+.input::placeholder{
+
+    color:#cbd5e1;
+}
+
+/* BUTTON */
+
+.save-btn{
+
+    width:100%;
+
+    border:none;
+
+    padding:18px;
+
+    border-radius:24px;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #22c55e,
+    #06b6d4
+    );
+
+    box-shadow:
+    0 15px 35px rgba(6,182,212,0.35);
+}
+
+.save-btn:active{
+
+    transform:scale(0.98);
+}
+
+/* POLICY */
+
+.policy{
+
+    margin-top:26px;
+
+    text-align:center;
+}
+
+.policy a{
+
+    color:#67e8f9;
+
+    font-size:16px;
+
+    text-decoration:none;
+
+    font-weight:700;
+}
+
+.policy a:hover{
+
+    text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+
+<div class="blur b1"></div>
+<div class="blur b2"></div>
+<div class="blur b3"></div>
+
+<div class="stars"></div>
+
+</div>
+
+<audio id="click">
+<source src="assets/audio/click.mp3"
+type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<button class="back-btn"
+onclick="goBack()">
+
+←
+
+</button>
+
+<h1 class="title">
+Settings
+</h1>
+
+</div>
+
+<!-- SETTINGS CARD -->
+
+<div class="card">
+
+<div class="profile-wrap">
+
+<div class="profile">
+
+<img id="profilePic"
+src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+</div>
+
+<button class="change-btn"
+onclick="changePhoto()">
+
+Change Photo
+
+</button>
+
+<input type="file"
+id="photoInput"
+accept="image/*"
+hidden>
+
+</div>
+
+<label class="label">
+Display Name
+</label>
+
+<input type="text"
+class="input"
+id="nameInput"
+placeholder="Enter your name">
+
+<button class="save-btn"
+onclick="saveProfile()">
+
+💾 SAVE CHANGES
+
+</button>
+
+<div class="policy">
+
+<a href="privacy.html">
+
+Privacy Policy
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+
+getAuth,
+
+onAuthStateChanged,
+
+updateProfile
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+import {
+
+getFirestore,
+
+doc,
+
+getDoc,
+
+updateDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyB5KdyKgHVuvmKRhu-tQQKaBsbUH9-Pz-E",
+
+authDomain:
+"iodonium-r-ea28a.firebaseapp.com",
+
+projectId:
+"iodonium-r-ea28a",
+
+storageBucket:
+"iodonium-r-ea28a.firebasestorage.app",
+
+messagingSenderId:
+"556058248851",
+
+appId:
+"1:556058248851:web:132044a66f3095646c6f66",
+
+measurementId:
+"G-Y71J98XK25"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+const click =
+document.getElementById("click");
+
+click.volume = 0.7;
+
+/* SOUND */
+
+function playClick(){
+
+    click.currentTime = 0;
+
+    click.play()
+    .catch(()=>{});
+}
+
+/* BACK */
+
+window.goBack = function(){
+
+    playClick();
+
+    setTimeout(()=>{
+
+        window.location.href =
+        "index.html";
+
+    },120);
+};
+
+/* LOAD USER */
+
+onAuthStateChanged(
+auth,
+async(user)=>{
+
+    if(user){
+
+        document
+        .getElementById("profilePic")
+        .src =
+        user.photoURL;
+
+        document
+        .getElementById("nameInput")
+        .value =
+        user.displayName;
+
+    }else{
+
+        window.location.href =
+        "index.html";
+    }
+});
+
+/* CHANGE PHOTO */
+
+window.changePhoto = function(){
+
+    playClick();
+
+    document
+    .getElementById("photoInput")
+    .click();
+};
+
+document
+.getElementById("photoInput")
+.addEventListener(
+"change",
+function(event){
+
+    const file =
+    event.target.files[0];
+
+    if(file){
+
+        const reader =
+        new FileReader();
+
+        reader.onload =
+        function(e){
+
+            document
+            .getElementById("profilePic")
+            .src =
+            e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+/* SAVE */
+
+window.saveProfile =
+async function(){
+
+    playClick();
+
+    const user =
+    auth.currentUser;
+
+    if(!user)return;
+
+    const newName =
+    document
+    .getElementById("nameInput")
+    .value;
+
+    const newPhoto =
+    document
+    .getElementById("profilePic")
+    .src;
+
+    try{
+
+        await updateProfile(
+        user,
+        {
+
+            displayName:
+            newName,
+
+            photoURL:
+            newPhoto
+        });
+
+        const ref =
+        doc(
+        db,
+        "users",
+        user.uid
+        );
+
+        await updateDoc(ref,{
+
+            name:newName,
+
+            photo:newPhoto
+        });
+
+        alert("Profile updated!");
+
+    }catch(error){
+
+        alert(error.message);
+
+        console.log(error);
+    }
+};
+
+</script>
+
+</body>
+</html>
