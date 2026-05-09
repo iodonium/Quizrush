@@ -1,17 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>QuizVerse</title>
+<title>QuizRush</title>
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
 rel="stylesheet">
 
 <style>
@@ -26,19 +31,19 @@ rel="stylesheet">
 
 body{
 
+    min-height:100vh;
+
+    overflow-x:hidden;
+
     background:
     linear-gradient(
     180deg,
-    #07111f,
-    #0f172a,
-    #111827
+    #13082c,
+    #0e1538,
+    #091423
     );
 
     color:white;
-
-    min-height:100vh;
-
-    overflow-y:auto;
 }
 
 body::-webkit-scrollbar{
@@ -53,48 +58,75 @@ body::-webkit-scrollbar{
     z-index:0;
 }
 
-.glow{
+.wave{
 
     position:absolute;
 
     border-radius:50%;
 
-    filter:blur(90px);
+    filter:blur(110px);
 
-    opacity:0.28;
+    opacity:0.55;
 }
 
-.glow1{
+.w1{
 
-    width:260px;
-    height:260px;
-
-    background:#06b6d4;
-
-    top:-40px;
-    left:-40px;
-}
-
-.glow2{
-
-    width:240px;
-    height:240px;
-
-    background:#3b82f6;
-
-    right:-50px;
-    top:25%;
-}
-
-.glow3{
-
-    width:220px;
-    height:220px;
+    width:380px;
+    height:380px;
 
     background:#8b5cf6;
 
-    bottom:0;
-    left:30%;
+    top:-100px;
+    left:-120px;
+}
+
+.w2{
+
+    width:420px;
+    height:420px;
+
+    background:#06b6d4;
+
+    top:25%;
+    right:-150px;
+}
+
+.w3{
+
+    width:300px;
+    height:300px;
+
+    background:#ec4899;
+
+    bottom:-80px;
+    left:-80px;
+}
+
+.w4{
+
+    width:280px;
+    height:280px;
+
+    background:#f59e0b;
+
+    bottom:5%;
+    right:-90px;
+}
+
+.stars{
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+    radial-gradient(
+    rgba(255,255,255,0.9) 1px,
+    transparent 1px
+    );
+
+    background-size:38px 38px;
+
+    opacity:0.28;
 }
 
 .container{
@@ -105,7 +137,7 @@ body::-webkit-scrollbar{
 
     width:100%;
 
-    padding:14px;
+    padding:20px 18px 50px;
 }
 
 .topbar{
@@ -116,44 +148,57 @@ body::-webkit-scrollbar{
 
     align-items:center;
 
-    margin-bottom:18px;
+    margin-bottom:28px;
 }
 
 .xp{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
     background:
-    rgba(255,255,255,0.08);
+    linear-gradient(
+    135deg,
+    #fde68a,
+    #fbbf24
+    );
 
-    border:
-    1px solid rgba(255,255,255,0.08);
+    padding:14px 22px;
 
-    backdrop-filter:blur(15px);
-
-    padding:12px 18px;
-
-    border-radius:18px;
-
-    font-size:18px;
-
-    font-weight:600;
+    border-radius:26px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,0.25);
+    0 10px 30px rgba(251,191,36,0.35);
+
+    border:
+    2px solid rgba(255,255,255,0.25);
+}
+
+.xp span{
+
+    font-size:20px;
+
+    font-weight:800;
+
+    color:#7c2d12;
 }
 
 .profile{
 
-    width:64px;
-    height:64px;
+    width:82px;
+    height:82px;
 
     border-radius:50%;
 
     overflow:hidden;
 
-    border:3px solid #38bdf8;
+    border:4px solid #67e8f9;
 
     box-shadow:
-    0 0 25px rgba(56,189,248,0.5);
+    0 0 35px rgba(103,232,249,0.7);
 
     cursor:pointer;
 }
@@ -168,41 +213,69 @@ body::-webkit-scrollbar{
 
 .hero{
 
-    margin-top:10px;
-
-    margin-bottom:22px;
+    margin-bottom:26px;
 }
 
-.title{
+.logo{
 
-    font-size:42px;
+    font-size:68px;
 
-    line-height:1.05;
+    font-weight:800;
 
-    font-weight:700;
+    line-height:1;
+
+    letter-spacing:-2px;
 
     background:
     linear-gradient(
     90deg,
+    #ff6b6b,
+    #f59e0b,
+    #84cc16,
+    #22c55e,
     #38bdf8,
-    #60a5fa,
-    #818cf8
+    #8b5cf6,
+    #ec4899
     );
+
+    background-size:400% 400%;
+
+    animation:gradientMove 8s ease infinite;
 
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 0 25px rgba(255,255,255,0.3);
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
 }
 
 .subtitle{
 
-    margin-top:10px;
+    margin-top:14px;
 
-    color:#94a3b8;
+    font-size:18px;
 
-    font-size:15px;
+    line-height:1.6;
 
-    line-height:1.5;
+    color:rgba(255,255,255,0.9);
+
+    max-width:500px;
 }
 
 .login-btn{
@@ -213,27 +286,29 @@ body::-webkit-scrollbar{
 
     border:none;
 
-    background:
-    linear-gradient(
-    90deg,
-    #06b6d4,
-    #3b82f6
-    );
-
-    color:white;
+    outline:none;
 
     padding:18px;
 
-    border-radius:22px;
+    border-radius:24px;
 
     font-size:18px;
 
     font-weight:700;
 
-    cursor:pointer;
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #06b6d4,
+    #8b5cf6
+    );
 
     box-shadow:
-    0 12px 30px rgba(59,130,246,0.35);
+    0 12px 35px rgba(139,92,246,0.4);
+
+    cursor:pointer;
 
     transition:0.25s;
 }
@@ -249,11 +324,7 @@ body::-webkit-scrollbar{
 
     grid-template-columns:1fr;
 
-    gap:16px;
-
-    margin-top:22px;
-
-    padding-bottom:40px;
+    gap:24px;
 }
 
 .card{
@@ -264,9 +335,11 @@ body::-webkit-scrollbar{
 
     border:none;
 
-    border-radius:28px;
+    border-radius:38px;
 
-    padding:22px;
+    padding:28px;
+
+    min-height:260px;
 
     text-align:left;
 
@@ -276,18 +349,16 @@ body::-webkit-scrollbar{
 
     transition:0.25s;
 
-    backdrop-filter:blur(18px);
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.35);
 
     border:
-    1px solid rgba(255,255,255,0.08);
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,0.3);
+    2px solid rgba(255,255,255,0.18);
 }
 
 .card:active{
 
-    transform:scale(0.98);
+    transform:scale(0.985);
 }
 
 .card::before{
@@ -296,68 +367,54 @@ body::-webkit-scrollbar{
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:230px;
+    height:230px;
 
     border-radius:50%;
 
     background:
-    rgba(255,255,255,0.08);
+    rgba(255,255,255,0.12);
 
-    top:-70px;
-    right:-70px;
+    top:-80px;
+    right:-60px;
 }
 
-.c1{
-    background:
-    linear-gradient(
-    135deg,
-    #0284c7,
-    #38bdf8
-    );
-}
+.card img{
 
-.c2{
-    background:
-    linear-gradient(
-    135deg,
-    #4338ca,
-    #6366f1
-    );
-}
-
-.c3{
-    background:
-    linear-gradient(
-    135deg,
-    #0f766e,
-    #14b8a6
-    );
-}
-
-.c4{
-    background:
-    linear-gradient(
-    135deg,
-    #1d4ed8,
-    #2563eb
-    );
-}
-
-.icon{
-
-    font-size:52px;
+    width:110px;
 
     position:relative;
 
     z-index:2;
+
+    filter:
+    drop-shadow(
+    0 8px 18px rgba(0,0,0,0.35)
+    );
+}
+
+.float-right{
+
+    position:absolute;
+
+    right:18px;
+    top:16px;
+
+    width:130px !important;
 }
 
 .card h2{
 
-    margin-top:14px;
+    margin-top:26px;
 
-    font-size:24px;
+    font-size:28px;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    text-shadow:
+    0 5px 12px rgba(0,0,0,0.4);
 
     position:relative;
 
@@ -366,70 +423,92 @@ body::-webkit-scrollbar{
 
 .card p{
 
-    margin-top:8px;
+    margin-top:12px;
+
+    font-size:16px;
+
+    line-height:1.6;
 
     color:
-    rgba(255,255,255,0.9);
-
-    font-size:14px;
-
-    line-height:1.5;
+    rgba(255,255,255,0.92);
 
     position:relative;
 
     z-index:2;
 }
 
-.music{
-
-    position:fixed;
-
-    right:16px;
-    bottom:16px;
-
-    width:62px;
-    height:62px;
-
-    border:none;
-
-    border-radius:50%;
+.c1{
 
     background:
     linear-gradient(
     135deg,
-    #0ea5e9,
-    #2563eb
+    #1d9bf0,
+    #34d399
+    );
+}
+
+.c2{
+
+    background:
+    linear-gradient(
+    135deg,
+    #9333ea,
+    #ec4899
+    );
+}
+
+.c3{
+
+    background:
+    linear-gradient(
+    135deg,
+    #d97706,
+    #fde68a
     );
 
-    color:white;
+    color:#3f2200;
+}
 
-    font-size:24px;
+.c3 p{
+    color:#5b3100;
+}
 
-    cursor:pointer;
+.c4{
 
-    z-index:10;
-
-    box-shadow:
-    0 12px 30px rgba(59,130,246,0.4);
+    background:
+    linear-gradient(
+    135deg,
+    #06b6d4,
+    #2563eb
+    );
 }
 
 .hidden{
     display:none;
 }
 
+.footer{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    color:rgba(255,255,255,0.55);
+
+    font-size:14px;
+}
+
 @media(min-width:700px){
 
     .container{
 
-        max-width:700px;
+        max-width:760px;
 
         margin:auto;
-
-        padding-top:25px;
     }
 
-    .title{
-        font-size:60px;
+    .logo{
+        font-size:86px;
     }
 
     .grid{
@@ -446,9 +525,12 @@ body::-webkit-scrollbar{
 
 <div class="bg">
 
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-<div class="glow glow3"></div>
+<div class="wave w1"></div>
+<div class="wave w2"></div>
+<div class="wave w3"></div>
+<div class="wave w4"></div>
+
+<div class="stars"></div>
 
 </div>
 
@@ -467,8 +549,15 @@ type="audio/mpeg">
 <div class="topbar">
 
 <div class="xp">
-⭐ XP:
-<span id="xp">0</span>
+
+<div style="font-size:34px">
+⭐
+</div>
+
+<span>
+XP: <span id="xp">0</span>
+</span>
+
 </div>
 
 <div class="profile"
@@ -483,18 +572,18 @@ src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
 <div class="hero">
 
-<h1 class="title">
-QuizVerse
+<h1 class="logo">
+QuizRush
 </h1>
 
 <p class="subtitle">
-Multiplayer flag, country and currency battle experience.
+Multiplayer flag, country and currency battle experience for kids!
 </p>
 
 <button class="login-btn"
 id="loginBtn">
 
-Login With Google
+🚀 Login With Google
 
 </button>
 
@@ -506,16 +595,17 @@ id="menu">
 <button class="card c1"
 onclick="goPage('computer.html')">
 
-<div class="icon">
-🤖
-</div>
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+
+<img class="float-right"
+src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
 
 <h2>
-Play vs AI
+PLAY VS BOT-PAL
 </h2>
 
 <p>
-Practice quiz battles against smart bots.
+Play quiz battles against friendly bots!
 </p>
 
 </button>
@@ -523,16 +613,17 @@ Practice quiz battles against smart bots.
 <button class="card c2"
 onclick="goPage('multiplayer.html')">
 
-<div class="icon">
-👥
-</div>
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+
+<img class="float-right"
+src="https://cdn-icons-png.flaticon.com/512/706/706830.png">
 
 <h2>
-Multiplayer
+MULTIPLAYER PARTY
 </h2>
 
 <p>
-Compete with real players online.
+Compete with friends online for fun prizes!
 </p>
 
 </button>
@@ -540,16 +631,14 @@ Compete with real players online.
 <button class="card c3"
 onclick="goPage('leaderboard.html')">
 
-<div class="icon">
-🏆
-</div>
+<img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png">
 
 <h2>
-Leaderboard
+LEADERBOARDS
 </h2>
 
 <p>
-Track rankings and top players.
+Global rankings - See where you and your friends stand!
 </p>
 
 </button>
@@ -557,30 +646,25 @@ Track rankings and top players.
 <button class="card c4"
 onclick="goPage('settings.html')">
 
-<div class="icon">
-⚙️
-</div>
+<img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png">
 
 <h2>
-Settings
+SETTINGS
 </h2>
 
 <p>
-Manage sound, account and profile.
+Customize sounds, profile and gameplay settings.
 </p>
 
 </button>
 
 </div>
 
+<div class="footer">
+QuizRush © 2025
 </div>
 
-<button class="music"
-onclick="toggleMusic()">
-
-🎵
-
-</button>
+</div>
 
 <script type="module">
 
@@ -619,22 +703,22 @@ from
 const firebaseConfig = {
 
 apiKey:
-"AIzaSyB5KdyKgHVuvmKRhu-tQQKaBsbUH9-Pz-E",
+"YOUR_API_KEY",
 
 authDomain:
-"iodonium-r-ea28a.firebaseapp.com",
+"YOUR_AUTH_DOMAIN",
 
 projectId:
-"iodonium-r-ea28a",
+"YOUR_PROJECT_ID",
 
 storageBucket:
-"iodonium-r-ea28a.firebasestorage.app",
+"YOUR_STORAGE_BUCKET",
 
 messagingSenderId:
-"556058248851",
+"YOUR_SENDER_ID",
 
 appId:
-"1:556058248851:web:132044a66f3095646c6f66"
+"YOUR_APP_ID"
 
 };
 
@@ -656,7 +740,7 @@ document.getElementById("bgm");
 const click =
 document.getElementById("click");
 
-function sound(){
+function playClick(){
 
 click.currentTime = 0;
 
@@ -665,7 +749,7 @@ click.play();
 
 window.goPage = function(page){
 
-sound();
+playClick();
 
 setTimeout(()=>{
 
@@ -674,21 +758,9 @@ window.location.href = page;
 },120);
 };
 
-window.toggleMusic = function(){
-
-sound();
-
-if(bgm.paused){
-
-bgm.play();
-
-}else{
-
-bgm.pause();
-}
-};
-
 async function login(){
+
+playClick();
 
 try{
 
@@ -753,6 +825,10 @@ document
 .getElementById("loginBtn")
 .classList.add("hidden");
 
+bgm.volume = 0.4;
+
+bgm.play();
+
 }catch(error){
 
 alert(error.message);
@@ -799,6 +875,11 @@ document
 document
 .getElementById("loginBtn")
 .classList.add("hidden");
+
+bgm.volume = 0.4;
+
+bgm.play()
+.catch(()=>{});
 }
 }
 });
@@ -822,4 +903,3 @@ once:true
 
 </body>
 </html>
-
