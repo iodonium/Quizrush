@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Firebase Login Test</title>
+
+<style>
+
+body{
+
+    margin:0;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#0f172a;
+
+    font-family:Arial;
+}
+
+button{
+
+    padding:18px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    background:#4285F4;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+.profile{
+
+    text-align:center;
+
+    color:white;
+}
+
+img{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<button id="loginBtn">
+Login With Google
+</button>
+
+<div class="profile"
+id="profile"
+style="display:none;">
+
+<img id="photo">
+
+<h2 id="name"></h2>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+
+getAuth,
+
+GoogleAuthProvider,
+
+signInWithPopup
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyB5KdyKgHVuvmKRhu-tQQKaBsbUH9-Pz-E",
+
+authDomain:
+"iodonium-r-ea28a.firebaseapp.com",
+
+projectId:
+"iodonium-r-ea28a",
+
+storageBucket:
+"iodonium-r-ea28a.firebasestorage.app",
+
+messagingSenderId:
+"556058248851",
+
+appId:
+"1:556058248851:web:132044a66f3095646c6f66"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const provider =
+new GoogleAuthProvider();
+
+document
+.getElementById("loginBtn")
+.onclick = async() => {
+
+try{
+
+const result =
+await signInWithPopup(
+auth,
+provider
+);
+
+const user =
+result.user;
+
+document
+.getElementById("loginBtn")
+.style.display = "none";
+
+document
+.getElementById("profile")
+.style.display = "block";
+
+document
+.getElementById("photo")
+.src =
+user.photoURL;
+
+document
+.getElementById("name")
+.innerText =
+user.displayName;
+
+}catch(error){
+
+alert(error.message);
+
+console.log(error);
+}
+};
+
+</script>
+
+</body>
+</html>
