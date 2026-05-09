@@ -6,7 +6,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>QuizVerse</title>
+<title>QuizVerse Dashboard</title>
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -24,24 +24,26 @@ rel="stylesheet">
 }
 
 body{
+
     min-height:100vh;
+
     overflow:hidden;
 
     background:
     linear-gradient(
     135deg,
-    #7dd3fc,
-    #c084fc,
-    #f9a8d4,
-    #fde68a
+    #60a5fa,
+    #a78bfa,
+    #f472b6,
+    #facc15
     );
 
     background-size:400% 400%;
 
-    animation:bg 10s infinite alternate;
+    animation:bgMove 12s infinite alternate;
 }
 
-@keyframes bg{
+@keyframes bgMove{
 
     0%{
         background-position:left;
@@ -52,23 +54,27 @@ body{
     }
 }
 
-.floating{
+.bubbles{
 
     position:fixed;
+
     inset:0;
+
     overflow:hidden;
+
     z-index:0;
 }
 
-.floating span{
+.bubbles span{
 
     position:absolute;
+
     display:block;
 
     border-radius:50%;
 
     background:
-    rgba(255,255,255,0.25);
+    rgba(255,255,255,0.2);
 
     animation:float 18s linear infinite;
 }
@@ -76,6 +82,7 @@ body{
 @keyframes float{
 
     0%{
+
         transform:
         translateY(0)
         rotate(0deg);
@@ -88,6 +95,7 @@ body{
     }
 
     100%{
+
         transform:
         translateY(-1200px)
         rotate(720deg);
@@ -96,15 +104,17 @@ body{
     }
 }
 
-.screen{
+.container{
 
     position:relative;
+
     z-index:2;
 
     width:100%;
     min-height:100vh;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -114,7 +124,11 @@ body{
 .glass{
 
     width:100%;
-    max-width:900px;
+    max-width:950px;
+
+    padding:35px;
+
+    border-radius:40px;
 
     background:
     rgba(255,255,255,0.18);
@@ -124,10 +138,6 @@ body{
     border:
     2px solid rgba(255,255,255,0.25);
 
-    border-radius:40px;
-
-    padding:35px;
-
     box-shadow:
     0 20px 50px rgba(0,0,0,0.2);
 }
@@ -135,7 +145,9 @@ body{
 .topbar{
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     margin-bottom:40px;
@@ -143,8 +155,8 @@ body{
 
 .profile{
 
-    width:75px;
-    height:75px;
+    width:80px;
+    height:80px;
 
     border-radius:50%;
 
@@ -173,18 +185,18 @@ body{
 
     background:white;
 
-    padding:14px 22px;
+    padding:15px 25px;
 
     border-radius:50px;
 
-    font-size:22px;
-
-    color:#ff4fa3;
+    font-size:24px;
 
     font-weight:700;
 
+    color:#ff4fa3;
+
     box-shadow:
-    0 10px 20px rgba(0,0,0,0.15);
+    0 10px 25px rgba(0,0,0,0.15);
 }
 
 .center{
@@ -198,23 +210,18 @@ body{
 
     color:white;
 
+    margin-bottom:10px;
+
     text-shadow:
     0 5px 0 #ff4fa3,
-    0 10px 20px rgba(0,0,0,0.15);
-
-    margin-bottom:10px;
+    0 10px 25px rgba(0,0,0,0.2);
 }
 
 .subtitle{
 
     color:white;
 
-    font-size:20px;
-
-    margin-bottom:40px;
-}
-
-.login-box{
+    font-size:22px;
 
     margin-bottom:40px;
 }
@@ -225,13 +232,13 @@ body{
 
     padding:18px 35px;
 
-    border-radius:20px;
+    border-radius:22px;
 
     background:white;
 
     color:#6366f1;
 
-    font-size:22px;
+    font-size:24px;
 
     font-weight:700;
 
@@ -240,12 +247,16 @@ body{
     transition:0.3s;
 
     box-shadow:
-    0 12px 25px rgba(0,0,0,0.18);
+    0 15px 30px rgba(0,0,0,0.18);
+
+    margin-bottom:40px;
 }
 
 .login-btn:hover{
 
-    transform:translateY(-4px);
+    transform:
+    translateY(-5px)
+    scale(1.03);
 }
 
 .grid{
@@ -268,9 +279,9 @@ body{
 
     cursor:pointer;
 
-    color:white;
-
     text-align:left;
+
+    color:white;
 
     transition:0.3s;
 
@@ -285,11 +296,16 @@ body{
     scale(1.03);
 }
 
+.card-icon{
+
+    font-size:60px;
+}
+
 .card h2{
 
-    font-size:28px;
-
     margin-top:15px;
+
+    font-size:28px;
 }
 
 .card p{
@@ -301,21 +317,8 @@ body{
     font-size:16px;
 }
 
-.card-icon{
-
-    font-size:60px;
-}
-
-.pink{
-    background:
-    linear-gradient(
-    135deg,
-    #ff5fa2,
-    #ff89c0
-    );
-}
-
 .blue{
+
     background:
     linear-gradient(
     135deg,
@@ -324,16 +327,28 @@ body{
     );
 }
 
-.yellow{
+.purple{
+
     background:
     linear-gradient(
     135deg,
-    #f59e0b,
-    #fcd34d
+    #8b5cf6,
+    #a78bfa
+    );
+}
+
+.pink{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ec4899,
+    #f472b6
     );
 }
 
 .green{
+
     background:
     linear-gradient(
     135deg,
@@ -342,15 +357,15 @@ body{
     );
 }
 
-.music{
+.music-btn{
 
     position:fixed;
 
-    bottom:20px;
     right:20px;
+    bottom:20px;
 
-    width:65px;
-    height:65px;
+    width:70px;
+    height:70px;
 
     border:none;
 
@@ -365,54 +380,11 @@ body{
     z-index:5;
 
     box-shadow:
-    0 10px 20px rgba(0,0,0,0.2);
+    0 10px 25px rgba(0,0,0,0.2);
 }
 
 .hidden{
     display:none;
-}
-
-.loading{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#0f172a;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    flex-direction:column;
-
-    gap:20px;
-
-    z-index:999;
-}
-
-.loader{
-
-    width:90px;
-    height:90px;
-
-    border-radius:50%;
-
-    border:
-    8px solid rgba(255,255,255,0.15);
-
-    border-top:
-    8px solid #60a5fa;
-
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-
-    to{
-        transform:rotate(360deg);
-    }
 }
 
 @media(max-width:700px){
@@ -431,28 +403,17 @@ body{
 
 <body>
 
-<div class="floating">
+<div class="bubbles">
 
 <span style="left:10%; width:80px; height:80px; animation-duration:15s;"></span>
 
 <span style="left:30%; width:60px; height:60px; animation-duration:18s;"></span>
 
-<span style="left:50%; width:100px; height:100px; animation-duration:20s;"></span>
+<span style="left:50%; width:120px; height:120px; animation-duration:20s;"></span>
 
-<span style="left:70%; width:50px; height:50px; animation-duration:13s;"></span>
+<span style="left:70%; width:50px; height:50px; animation-duration:12s;"></span>
 
-<span style="left:90%; width:120px; height:120px; animation-duration:22s;"></span>
-
-</div>
-
-<div class="loading"
-id="loading">
-
-<div class="loader"></div>
-
-<h2 style="color:white;">
-Loading QuizVerse...
-</h2>
+<span style="left:90%; width:100px; height:100px; animation-duration:22s;"></span>
 
 </div>
 
@@ -471,7 +432,7 @@ type="audio/mpeg">
 
 </audio>
 
-<div class="screen">
+<div class="container">
 
 <div class="glass">
 
@@ -499,10 +460,8 @@ src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 </h1>
 
 <p class="subtitle">
-Cute Multiplayer Quiz Game
+Cute Multiplayer Quiz Experience
 </p>
-
-<div class="login-box">
 
 <button class="login-btn"
 id="loginBtn">
@@ -511,12 +470,10 @@ id="loginBtn">
 
 </button>
 
-</div>
-
 <div class="grid hidden"
 id="menu">
 
-<button class="card pink"
+<button class="card blue"
 onclick="goPage('computer.html')">
 
 <div class="card-icon">
@@ -528,12 +485,12 @@ Play With Computer
 </h2>
 
 <p>
-Challenge smart AI quiz bots.
+Battle AI quiz masters.
 </p>
 
 </button>
 
-<button class="card blue"
+<button class="card purple"
 onclick="goPage('multiplayer.html')">
 
 <div class="card-icon">
@@ -545,12 +502,12 @@ Multiplayer
 </h2>
 
 <p>
-Play online with friends.
+Play online with players.
 </p>
 
 </button>
 
-<button class="card yellow"
+<button class="card pink"
 onclick="goPage('leaderboard.html')">
 
 <div class="card-icon">
@@ -562,7 +519,7 @@ Leaderboard
 </h2>
 
 <p>
-See the top quiz champions.
+See top ranked players.
 </p>
 
 </button>
@@ -579,7 +536,7 @@ Settings
 </h2>
 
 <p>
-Manage profile and sounds.
+Customize your profile.
 </p>
 
 </button>
@@ -592,7 +549,7 @@ Manage profile and sounds.
 
 </div>
 
-<button class="music"
+<button class="music-btn"
 onclick="toggleMusic()">
 
 🎵
@@ -607,13 +564,13 @@ from
 
 import {
 
-    getAuth,
+getAuth,
 
-    GoogleAuthProvider,
+GoogleAuthProvider,
 
-    signInWithPopup,
+signInWithPopup,
 
-    onAuthStateChanged
+onAuthStateChanged
 
 }
 from
@@ -621,13 +578,13 @@ from
 
 import {
 
-    getFirestore,
+getFirestore,
 
-    doc,
+doc,
 
-    getDoc,
+getDoc,
 
-    setDoc
+setDoc
 
 }
 from
@@ -651,10 +608,7 @@ messagingSenderId:
 "556058248851",
 
 appId:
-"1:556058248851:web:132044a66f3095646c6f66",
-
-measurementId:
-"G-Y71J98XK25"
+"1:556058248851:web:132044a66f3095646c6f66"
 
 };
 
@@ -773,13 +727,6 @@ document
 .getElementById("loginBtn")
 .classList.add("hidden");
 
-window.onload = () => {
-  
-  document
-    .getElementById("loading")
-    .classList.add("hidden");
-  
-};
 }catch(error){
 
 alert(error.message);
@@ -826,17 +773,7 @@ document
 document
 .getElementById("loginBtn")
 .classList.add("hidden");
-
-document
-.getElementById("loading")
-.classList.add("hidden");
 }
-
-}else{
-
-document
-.getElementById("loading")
-.classList.add("hidden");
 }
 });
 
@@ -899,4 +836,4 @@ console.clear();
 
 </body>
 </html>
-  
+
