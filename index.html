@@ -7,7 +7,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>QuizRush</title>
+<title>QuizRush Dashboard</title>
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -29,6 +29,10 @@ rel="stylesheet">
     -webkit-tap-highlight-color:transparent;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
     min-height:100vh;
@@ -38,9 +42,9 @@ body{
     background:
     linear-gradient(
     180deg,
-    #090b1a,
-    #111827,
-    #0f172a
+    #070b16,
+    #0f172a,
+    #111827
     );
 
     color:white;
@@ -54,8 +58,9 @@ body::-webkit-scrollbar{
 
     position:fixed;
     inset:0;
-    overflow:hidden;
     z-index:0;
+
+    overflow:hidden;
 }
 
 .glow{
@@ -64,9 +69,9 @@ body::-webkit-scrollbar{
 
     border-radius:50%;
 
-    filter:blur(110px);
+    filter:blur(100px);
 
-    opacity:0.5;
+    opacity:0.45;
 }
 
 .g1{
@@ -88,29 +93,18 @@ body::-webkit-scrollbar{
     background:#06b6d4;
 
     right:-120px;
-    top:20%;
+    top:25%;
 }
 
 .g3{
-
-    width:280px;
-    height:280px;
-
-    background:#ec4899;
-
-    bottom:-80px;
-    left:-100px;
-}
-
-.g4{
 
     width:260px;
     height:260px;
 
     background:#3b82f6;
 
-    bottom:10%;
-    right:-90px;
+    bottom:-80px;
+    left:-80px;
 }
 
 .stars{
@@ -120,13 +114,13 @@ body::-webkit-scrollbar{
 
     background-image:
     radial-gradient(
-    rgba(255,255,255,0.9) 1px,
+    rgba(255,255,255,0.8) 1px,
     transparent 1px
     );
 
     background-size:35px 35px;
 
-    opacity:0.18;
+    opacity:0.12;
 }
 
 .container{
@@ -140,6 +134,8 @@ body::-webkit-scrollbar{
     padding:18px 18px 120px;
 }
 
+/* TOPBAR */
+
 .topbar{
 
     display:flex;
@@ -148,10 +144,12 @@ body::-webkit-scrollbar{
 
     align-items:center;
 
-    margin-bottom:28px;
+    margin-bottom:24px;
 }
 
-.xp{
+.xp-box{
+
+    border:none;
 
     display:flex;
 
@@ -159,28 +157,37 @@ body::-webkit-scrollbar{
 
     gap:10px;
 
-    padding:12px 18px;
+    padding:10px 16px;
 
-    border-radius:24px;
+    border-radius:22px;
+
+    cursor:pointer;
 
     background:
-    rgba(255,255,255,0.1);
+    rgba(255,255,255,0.08);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:blur(16px);
 
     border:
-    1px solid rgba(255,255,255,0.15);
+    1px solid rgba(255,255,255,0.08);
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,0.3);
+    0 10px 25px rgba(0,0,0,0.25);
+
+    transition:0.2s;
 }
 
-.star{
+.xp-box:active{
 
-    width:38px;
-    height:38px;
+    transform:scale(0.96);
+}
 
-    border-radius:50%;
+.xp-icon{
+
+    width:34px;
+    height:34px;
+
+    border-radius:12px;
 
     display:flex;
 
@@ -191,40 +198,58 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     135deg,
-    #f59e0b,
-    #facc15
+    #facc15,
+    #f59e0b
     );
 
-    color:#111827;
-
-    font-size:20px;
+    font-size:16px;
 
     box-shadow:
-    0 0 20px rgba(250,204,21,0.4);
+    0 0 18px rgba(250,204,21,0.35);
 }
 
-.xp-text{
+.xp-info{
 
-    font-size:22px;
+    display:flex;
 
-    font-weight:800;
+    flex-direction:column;
+
+    align-items:flex-start;
+}
+
+.xp-label{
+
+    font-size:10px;
+
+    font-weight:600;
+
+    color:#94a3b8;
+
+    letter-spacing:1px;
+}
+
+.xp-value{
+
+    font-size:18px;
+
+    font-weight:700;
 
     color:white;
 }
 
 .profile{
 
-    width:74px;
-    height:74px;
+    width:56px;
+    height:56px;
 
     border-radius:50%;
 
     overflow:hidden;
 
-    border:4px solid #67e8f9;
+    border:2px solid #67e8f9;
 
     box-shadow:
-    0 0 28px rgba(103,232,249,0.6);
+    0 0 22px rgba(103,232,249,0.45);
 
     cursor:pointer;
 }
@@ -237,14 +262,16 @@ body::-webkit-scrollbar{
     object-fit:cover;
 }
 
+/* HERO */
+
 .hero{
 
-    margin-bottom:24px;
+    margin-bottom:26px;
 }
 
 .logo{
 
-    font-size:62px;
+    font-size:56px;
 
     font-weight:800;
 
@@ -255,64 +282,41 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     90deg,
-    #ff6b6b,
-    #f59e0b,
-    #22c55e,
     #38bdf8,
-    #8b5cf6,
+    #818cf8,
     #ec4899
     );
-
-    background-size:400% 400%;
-
-    animation:move 8s ease infinite;
 
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
 }
 
-@keyframes move{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-}
-
 .subtitle{
 
     margin-top:14px;
 
-    font-size:18px;
+    font-size:16px;
 
     line-height:1.7;
 
-    color:rgba(255,255,255,0.88);
+    color:
+    rgba(255,255,255,0.8);
 }
 
 .login-btn{
 
     width:100%;
 
-    margin-top:24px;
+    margin-top:22px;
 
     border:none;
 
-    outline:none;
+    padding:17px;
 
-    padding:18px;
+    border-radius:22px;
 
-    border-radius:26px;
-
-    font-size:18px;
+    font-size:16px;
 
     font-weight:700;
 
@@ -328,14 +332,17 @@ body::-webkit-scrollbar{
     );
 
     box-shadow:
-    0 14px 35px rgba(139,92,246,0.4);
+    0 12px 35px rgba(139,92,246,0.4);
 
     transition:0.2s;
 }
 
 .login-btn:active{
+
     transform:scale(0.98);
 }
+
+/* GRID */
 
 .grid{
 
@@ -343,7 +350,7 @@ body::-webkit-scrollbar{
 
     grid-template-columns:1fr;
 
-    gap:24px;
+    gap:18px;
 }
 
 .card{
@@ -354,26 +361,29 @@ body::-webkit-scrollbar{
 
     border:none;
 
-    border-radius:38px;
+    border-radius:32px;
 
-    padding:26px;
+    padding:22px;
 
-    min-height:240px;
+    min-height:210px;
 
     text-align:left;
+
+    color:white;
 
     cursor:pointer;
 
     transition:0.2s;
 
     border:
-    1px solid rgba(255,255,255,0.15);
+    1px solid rgba(255,255,255,0.12);
 
     box-shadow:
-    0 18px 40px rgba(0,0,0,0.35);
+    0 15px 35px rgba(0,0,0,0.35);
 }
 
 .card:active{
+
     transform:scale(0.985);
 }
 
@@ -383,21 +393,21 @@ body::-webkit-scrollbar{
 
     position:absolute;
 
-    width:220px;
-    height:220px;
+    width:200px;
+    height:200px;
 
     border-radius:50%;
 
     background:
-    rgba(255,255,255,0.12);
+    rgba(255,255,255,0.08);
 
-    top:-80px;
+    top:-70px;
     right:-60px;
 }
 
 .card img{
 
-    width:100px;
+    width:90px;
 
     position:relative;
 
@@ -405,25 +415,25 @@ body::-webkit-scrollbar{
 
     filter:
     drop-shadow(
-    0 10px 18px rgba(0,0,0,0.35)
+    0 8px 16px rgba(0,0,0,0.3)
     );
 }
 
-.float-right{
+.float{
 
     position:absolute;
 
-    right:16px;
-    top:16px;
+    top:18px;
+    right:18px;
 
-    width:120px !important;
+    width:110px !important;
 }
 
 .card h2{
 
-    margin-top:24px;
+    margin-top:22px;
 
-    font-size:28px;
+    font-size:24px;
 
     line-height:1.2;
 
@@ -432,21 +442,18 @@ body::-webkit-scrollbar{
     position:relative;
 
     z-index:2;
-
-    text-shadow:
-    0 5px 10px rgba(0,0,0,0.4);
 }
 
 .card p{
 
-    margin-top:12px;
+    margin-top:10px;
 
-    font-size:16px;
+    font-size:14px;
 
     line-height:1.6;
 
     color:
-    rgba(255,255,255,0.92);
+    rgba(255,255,255,0.9);
 
     position:relative;
 
@@ -458,8 +465,8 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     135deg,
-    #1d9bf0,
-    #34d399
+    #0ea5e9,
+    #22c55e
     );
 }
 
@@ -468,7 +475,7 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     135deg,
-    #9333ea,
+    #8b5cf6,
     #ec4899
     );
 }
@@ -478,15 +485,9 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     135deg,
-    #f59e0b,
-    #fde047
+    #2563eb,
+    #06b6d4
     );
-
-    color:#4a2500;
-}
-
-.c3 p{
-    color:#5f3700;
 }
 
 .c4{
@@ -494,14 +495,22 @@ body::-webkit-scrollbar{
     background:
     linear-gradient(
     135deg,
-    #06b6d4,
-    #2563eb
+    #f59e0b,
+    #facc15
     );
+
+    color:#3f2200;
+}
+
+.c4 p{
+    color:#5f3700;
 }
 
 .hidden{
     display:none;
 }
+
+/* NAVBAR */
 
 .bottom-nav{
 
@@ -522,12 +531,12 @@ body::-webkit-scrollbar{
     padding:14px 10px calc(14px + env(safe-area-inset-bottom));
 
     background:
-    rgba(8,15,30,0.82);
+    rgba(8,15,30,0.85);
 
     backdrop-filter:blur(20px);
 
     border-top:
-    1px solid rgba(255,255,255,0.1);
+    1px solid rgba(255,255,255,0.08);
 }
 
 .nav-btn{
@@ -546,13 +555,13 @@ body::-webkit-scrollbar{
 
     gap:6px;
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:600;
 
     cursor:pointer;
 
-    opacity:0.78;
+    opacity:0.75;
 }
 
 .nav-btn.active{
@@ -561,10 +570,10 @@ body::-webkit-scrollbar{
 
 .nav-icon{
 
-    width:52px;
-    height:52px;
+    width:50px;
+    height:50px;
 
-    border-radius:18px;
+    border-radius:16px;
 
     display:flex;
 
@@ -572,13 +581,10 @@ body::-webkit-scrollbar{
 
     justify-content:center;
 
-    font-size:24px;
+    font-size:22px;
 
     background:
-    rgba(255,255,255,0.08);
-
-    border:
-    1px solid rgba(255,255,255,0.08);
+    rgba(255,255,255,0.06);
 }
 
 .active .nav-icon{
@@ -592,10 +598,6 @@ body::-webkit-scrollbar{
 
     box-shadow:
     0 10px 25px rgba(139,92,246,0.35);
-}
-
-.footer-space{
-    height:30px;
 }
 
 @media(min-width:700px){
@@ -614,7 +616,7 @@ body::-webkit-scrollbar{
     }
 
     .logo{
-        font-size:82px;
+        font-size:72px;
     }
 }
 
@@ -628,37 +630,51 @@ body::-webkit-scrollbar{
 <div class="glow g1"></div>
 <div class="glow g2"></div>
 <div class="glow g3"></div>
-<div class="glow g4"></div>
 
 <div class="stars"></div>
 
 </div>
 
+<!-- AUDIO -->
+
 <audio id="bgm" loop>
-<source src="bgm.mp3"
+<source src="assets/audio/bgm.mp3"
 type="audio/mpeg">
 </audio>
 
 <audio id="click">
-<source src="click.mp3"
+<source src="assets/audio/click.mp3"
 type="audio/mpeg">
 </audio>
 
 <div class="container">
 
-<div class="topbar">
+<!-- TOPBAR -->
 
-<div class="xp">
+<div class="topbar hidden"
+id="topbar">
 
-<div class="star">
+<button class="xp-box"
+onclick="goPage('leaderboard.html')">
+
+<div class="xp-icon">
 ⭐
 </div>
 
-<div class="xp-text">
-XP: <span id="xp">0</span>
-</div>
+<div class="xp-info">
+
+<span class="xp-label">
+XP
+</span>
+
+<span class="xp-value"
+id="xp">
+0
+</span>
 
 </div>
+
+</button>
 
 <div class="profile"
 onclick="goPage('settings.html')">
@@ -670,6 +686,8 @@ src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
 </div>
 
+<!-- HERO -->
+
 <div class="hero">
 
 <h1 class="logo">
@@ -677,7 +695,7 @@ QuizRush
 </h1>
 
 <p class="subtitle">
-Multiplayer flag, country and currency battle experience for kids.
+Battle friends, challenge bots and climb the global leaderboard.
 </p>
 
 <button class="login-btn"
@@ -689,6 +707,8 @@ id="loginBtn">
 
 </div>
 
+<!-- MENU -->
+
 <div class="grid hidden"
 id="menu">
 
@@ -697,15 +717,15 @@ onclick="goPage('computer.html')">
 
 <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
-<img class="float-right"
+<img class="float"
 src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
 
 <h2>
-PLAY VS BOT-PAL
+Play vs AI
 </h2>
 
 <p>
-Play quiz battles against friendly bots.
+Practice against smart quiz bots.
 </p>
 
 </button>
@@ -715,56 +735,54 @@ onclick="goPage('multiplayer.html')">
 
 <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
 
-<img class="float-right"
-src="https://cdn-icons-png.flaticon.com/512/706/706830.png">
-
 <h2>
-MULTIPLAYER PARTY
+Multiplayer
 </h2>
 
 <p>
-Compete with friends online for fun prizes.
+Battle real players online live.
 </p>
 
 </button>
 
 <button class="card c3"
-onclick="goPage('leaderboard.html')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png">
-
-<h2>
-LEADERBOARDS
-</h2>
-
-<p>
-See top players and global rankings.
-</p>
-
-</button>
-
-<button class="card c4"
 onclick="goPage('friends.html')">
 
 <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png">
 
 <h2>
-FRIENDS
+Friends
 </h2>
 
 <p>
-Add friends and challenge them online.
+Add friends and challenge them.
+</p>
+
+</button>
+
+<button class="card c4"
+onclick="goPage('leaderboard.html')">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png">
+
+<h2>
+Leaderboard
+</h2>
+
+<p>
+Check top ranked global players.
 </p>
 
 </button>
 
 </div>
 
-<div class="footer-space"></div>
-
 </div>
 
-<div class="bottom-nav">
+<!-- NAVIGATION -->
+
+<div class="bottom-nav hidden"
+id="bottomNav">
 
 <button class="nav-btn active"
 onclick="goPage('dashboard.html')">
@@ -867,7 +885,6 @@ measurementId:
 const app =
 initializeApp(firebaseConfig);
 
-const analytics =
 getAnalytics(app);
 
 const auth =
@@ -889,158 +906,194 @@ bgm.volume = 0.35;
 
 click.volume = 0.6;
 
+/* SOUND */
+
 function playClick(){
 
-click.currentTime = 0;
+    click.currentTime = 0;
 
-click.play();
+    click.play()
+    .catch(()=>{});
 }
+
+/* PAGE NAVIGATION */
 
 window.goPage = function(page){
 
-playClick();
+    playClick();
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-window.location.href = page;
+        window.location.href = page;
 
-},120);
+    },120);
 };
+
+/* UI SHOW */
+
+function showDashboard(user,data){
+
+    document
+    .getElementById("menu")
+    .classList
+    .remove("hidden");
+
+    document
+    .getElementById("bottomNav")
+    .classList
+    .remove("hidden");
+
+    document
+    .getElementById("topbar")
+    .classList
+    .remove("hidden");
+
+    document
+    .getElementById("loginBtn")
+    .classList
+    .add("hidden");
+
+    document
+    .getElementById("profilePic")
+    .src =
+    user.photoURL;
+
+    document
+    .getElementById("xp")
+    .innerText =
+    data.xp || 0;
+}
+
+/* LOGIN */
 
 async function login(){
 
-playClick();
+    playClick();
 
-try{
+    try{
 
-const result =
-await signInWithPopup(
-auth,
-provider
-);
+        const result =
+        await signInWithPopup(
+        auth,
+        provider
+        );
 
-const user =
-result.user;
+        const user =
+        result.user;
 
-const ref =
-doc(
-db,
-"users",
-user.uid
-);
+        const ref =
+        doc(
+        db,
+        "users",
+        user.uid
+        );
 
-const snap =
-await getDoc(ref);
+        const snap =
+        await getDoc(ref);
 
-if(!snap.exists()){
+        if(!snap.exists()){
 
-await setDoc(ref,{
+            await setDoc(ref,{
 
-name:
-user.displayName,
+                name:
+                user.displayName,
 
-photo:
-user.photoURL,
+                photo:
+                user.photoURL,
 
-xp:0,
+                xp:0,
 
-friends:[],
+                createdAt:
+                Date.now()
 
-createdAt:
-Date.now()
+            });
+        }
 
-});
+        const latest =
+        await getDoc(ref);
+
+        const data =
+        latest.data();
+
+        showDashboard(user,data);
+
+        bgm.play()
+        .catch(()=>{});
+
+    }catch(error){
+
+        alert(error.message);
+
+        console.log(error);
+    }
 }
 
-const latest =
-await getDoc(ref);
-
-const data =
-latest.data();
-
-document
-.getElementById("profilePic")
-.src =
-user.photoURL;
-
-document
-.getElementById("xp")
-.innerText =
-data.xp || 0;
-
-document
-.getElementById("menu")
-.classList.remove("hidden");
-
-document
-.getElementById("loginBtn")
-.classList.add("hidden");
-
-bgm.play();
-
-}catch(error){
-
-alert(error.message);
-
-console.log(error);
-}
-}
+/* AUTH CHECK */
 
 onAuthStateChanged(
 auth,
 async(user)=>{
 
-if(user){
+    if(user){
 
-const ref =
-doc(
-db,
-"users",
-user.uid
-);
+        const ref =
+        doc(
+        db,
+        "users",
+        user.uid
+        );
 
-const snap =
-await getDoc(ref);
+        const snap =
+        await getDoc(ref);
 
-if(snap.exists()){
+        if(snap.exists()){
 
-const data =
-snap.data();
+            const data =
+            snap.data();
 
-document
-.getElementById("profilePic")
-.src =
-user.photoURL;
+            showDashboard(user,data);
 
-document
-.getElementById("xp")
-.innerText =
-data.xp || 0;
+            bgm.play()
+            .catch(()=>{});
+        }
 
-document
-.getElementById("menu")
-.classList.remove("hidden");
+    }else{
 
-document
-.getElementById("loginBtn")
-.classList.add("hidden");
+        document
+        .getElementById("menu")
+        .classList
+        .add("hidden");
 
-bgm.play()
-.catch(()=>{});
-}
-}
+        document
+        .getElementById("bottomNav")
+        .classList
+        .add("hidden");
+
+        document
+        .getElementById("topbar")
+        .classList
+        .add("hidden");
+
+        document
+        .getElementById("loginBtn")
+        .classList
+        .remove("hidden");
+    }
 });
 
 document
 .getElementById("loginBtn")
-.onclick = login;
+.onclick =
+login;
+
+/* AUTO ENABLE AUDIO */
 
 document.addEventListener(
 "click",
 ()=>{
 
-bgm.play()
-.catch(()=>{});
+    bgm.play()
+    .catch(()=>{});
 
 },{
 once:true
