@@ -1,0 +1,902 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>QuizVerse</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Fredoka',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7dd3fc,
+    #c084fc,
+    #f9a8d4,
+    #fde68a
+    );
+
+    background-size:400% 400%;
+
+    animation:bg 10s infinite alternate;
+}
+
+@keyframes bg{
+
+    0%{
+        background-position:left;
+    }
+
+    100%{
+        background-position:right;
+    }
+}
+
+.floating{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.floating span{
+
+    position:absolute;
+    display:block;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.25);
+
+    animation:float 18s linear infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(-1200px)
+        rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+.screen{
+
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.glass{
+
+    width:100%;
+    max-width:900px;
+
+    background:
+    rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    2px solid rgba(255,255,255,0.25);
+
+    border-radius:40px;
+
+    padding:35px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.2);
+}
+
+.topbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:40px;
+}
+
+.profile{
+
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:4px solid white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.profile:hover{
+
+    transform:scale(1.08);
+}
+
+.profile img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.xp{
+
+    background:white;
+
+    padding:14px 22px;
+
+    border-radius:50px;
+
+    font-size:22px;
+
+    color:#ff4fa3;
+
+    font-weight:700;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.15);
+}
+
+.center{
+
+    text-align:center;
+}
+
+.title{
+
+    font-size:72px;
+
+    color:white;
+
+    text-shadow:
+    0 5px 0 #ff4fa3,
+    0 10px 20px rgba(0,0,0,0.15);
+
+    margin-bottom:10px;
+}
+
+.subtitle{
+
+    color:white;
+
+    font-size:20px;
+
+    margin-bottom:40px;
+}
+
+.login-box{
+
+    margin-bottom:40px;
+}
+
+.login-btn{
+
+    border:none;
+
+    padding:18px 35px;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#6366f1;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,0.18);
+}
+
+.login-btn:hover{
+
+    transform:translateY(-4px);
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+}
+
+.card{
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    cursor:pointer;
+
+    color:white;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.18);
+}
+
+.card:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.03);
+}
+
+.card h2{
+
+    font-size:28px;
+
+    margin-top:15px;
+}
+
+.card p{
+
+    margin-top:10px;
+
+    line-height:1.5;
+
+    font-size:16px;
+}
+
+.card-icon{
+
+    font-size:60px;
+}
+
+.pink{
+    background:
+    linear-gradient(
+    135deg,
+    #ff5fa2,
+    #ff89c0
+    );
+}
+
+.blue{
+    background:
+    linear-gradient(
+    135deg,
+    #3b82f6,
+    #60a5fa
+    );
+}
+
+.yellow{
+    background:
+    linear-gradient(
+    135deg,
+    #f59e0b,
+    #fcd34d
+    );
+}
+
+.green{
+    background:
+    linear-gradient(
+    135deg,
+    #10b981,
+    #34d399
+    );
+}
+
+.music{
+
+    position:fixed;
+
+    bottom:20px;
+    right:20px;
+
+    width:65px;
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hidden{
+    display:none;
+}
+
+.loading{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0f172a;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    z-index:999;
+}
+
+.loader{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    border:
+    8px solid rgba(255,255,255,0.15);
+
+    border-top:
+    8px solid #60a5fa;
+
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@media(max-width:700px){
+
+    .title{
+        font-size:48px;
+    }
+
+    .glass{
+        padding:25px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="floating">
+
+<span style="left:10%; width:80px; height:80px; animation-duration:15s;"></span>
+
+<span style="left:30%; width:60px; height:60px; animation-duration:18s;"></span>
+
+<span style="left:50%; width:100px; height:100px; animation-duration:20s;"></span>
+
+<span style="left:70%; width:50px; height:50px; animation-duration:13s;"></span>
+
+<span style="left:90%; width:120px; height:120px; animation-duration:22s;"></span>
+
+</div>
+
+<div class="loading"
+id="loading">
+
+<div class="loader"></div>
+
+<h2 style="color:white;">
+Loading QuizVerse...
+</h2>
+
+</div>
+
+<audio id="bgMusic"
+loop>
+
+<source src="bgm.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<audio id="clickSound">
+
+<source src="click.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<div class="screen">
+
+<div class="glass">
+
+<div class="topbar">
+
+<div class="xp">
+⭐ XP:
+<span id="xp">0</span>
+</div>
+
+<div class="profile"
+onclick="goPage('settings.html')">
+
+<img id="profilePic"
+src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+</div>
+
+</div>
+
+<div class="center">
+
+<h1 class="title">
+🌈 QuizVerse
+</h1>
+
+<p class="subtitle">
+Cute Multiplayer Quiz Game
+</p>
+
+<div class="login-box">
+
+<button class="login-btn"
+id="loginBtn">
+
+✨ Login With Google
+
+</button>
+
+</div>
+
+<div class="grid hidden"
+id="menu">
+
+<button class="card pink"
+onclick="goPage('computer.html')">
+
+<div class="card-icon">
+🤖
+</div>
+
+<h2>
+Play With Computer
+</h2>
+
+<p>
+Challenge smart AI quiz bots.
+</p>
+
+</button>
+
+<button class="card blue"
+onclick="goPage('multiplayer.html')">
+
+<div class="card-icon">
+👥
+</div>
+
+<h2>
+Multiplayer
+</h2>
+
+<p>
+Play online with friends.
+</p>
+
+</button>
+
+<button class="card yellow"
+onclick="goPage('leaderboard.html')">
+
+<div class="card-icon">
+🏆
+</div>
+
+<h2>
+Leaderboard
+</h2>
+
+<p>
+See the top quiz champions.
+</p>
+
+</button>
+
+<button class="card green"
+onclick="goPage('settings.html')">
+
+<div class="card-icon">
+⚙️
+</div>
+
+<h2>
+Settings
+</h2>
+
+<p>
+Manage profile and sounds.
+</p>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<button class="music"
+onclick="toggleMusic()">
+
+🎵
+
+</button>
+
+<script type="module">
+
+import { initializeApp }
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+
+    getAuth,
+
+    GoogleAuthProvider,
+
+    signInWithPopup,
+
+    onAuthStateChanged
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+import {
+
+    getFirestore,
+
+    doc,
+
+    getDoc,
+
+    setDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyB5KdyKgHVuvmKRhu-tQQKaBsbUH9-Pz-E",
+
+authDomain:
+"iodonium-r-ea28a.firebaseapp.com",
+
+projectId:
+"iodonium-r-ea28a",
+
+storageBucket:
+"iodonium-r-ea28a.firebasestorage.app",
+
+messagingSenderId:
+"556058248851",
+
+appId:
+"1:556058248851:web:132044a66f3095646c6f66",
+
+measurementId:
+"G-Y71J98XK25"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+const provider =
+new GoogleAuthProvider();
+
+const bgMusic =
+document.getElementById("bgMusic");
+
+const clickSound =
+document.getElementById("clickSound");
+
+function playClick(){
+
+clickSound.currentTime = 0;
+
+clickSound.play();
+}
+
+window.goPage = function(page){
+
+playClick();
+
+setTimeout(()=>{
+
+window.location.href = page;
+
+},150);
+};
+
+window.toggleMusic = function(){
+
+playClick();
+
+if(bgMusic.paused){
+
+bgMusic.play();
+
+}else{
+
+bgMusic.pause();
+}
+};
+
+async function login(){
+
+try{
+
+const result =
+await signInWithPopup(
+auth,
+provider
+);
+
+const user =
+result.user;
+
+const ref =
+doc(
+db,
+"users",
+user.uid
+);
+
+const snap =
+await getDoc(ref);
+
+if(!snap.exists()){
+
+await setDoc(ref,{
+
+name:
+user.displayName,
+
+photo:
+user.photoURL,
+
+xp:0,
+
+createdAt:
+Date.now()
+
+});
+}
+
+const latest =
+await getDoc(ref);
+
+const data =
+latest.data();
+
+document
+.getElementById("profilePic")
+.src =
+user.photoURL;
+
+document
+.getElementById("xp")
+.innerText =
+data.xp || 0;
+
+document
+.getElementById("menu")
+.classList.remove("hidden");
+
+document
+.getElementById("loginBtn")
+.classList.add("hidden");
+
+window.onload = () => {
+  
+  document
+    .getElementById("loading")
+    .classList.add("hidden");
+  
+};
+}catch(error){
+
+alert(error.message);
+
+console.log(error);
+}
+}
+
+onAuthStateChanged(
+auth,
+async(user)=>{
+
+if(user){
+
+const ref =
+doc(
+db,
+"users",
+user.uid
+);
+
+const snap =
+await getDoc(ref);
+
+if(snap.exists()){
+
+const data =
+snap.data();
+
+document
+.getElementById("profilePic")
+.src =
+user.photoURL;
+
+document
+.getElementById("xp")
+.innerText =
+data.xp || 0;
+
+document
+.getElementById("menu")
+.classList.remove("hidden");
+
+document
+.getElementById("loginBtn")
+.classList.add("hidden");
+
+document
+.getElementById("loading")
+.classList.add("hidden");
+}
+
+}else{
+
+document
+.getElementById("loading")
+.classList.add("hidden");
+}
+});
+
+document
+.getElementById("loginBtn")
+.onclick = login;
+
+document.addEventListener(
+"click",
+()=>{
+
+bgMusic.play()
+.catch(()=>{});
+
+},{
+once:true
+});
+
+document.addEventListener(
+"contextmenu",
+e => e.preventDefault()
+);
+
+document.onkeydown = function(e){
+
+if(
+
+e.keyCode == 123 ||
+
+(
+e.ctrlKey &&
+e.shiftKey &&
+e.keyCode == 73
+) ||
+
+(
+e.ctrlKey &&
+e.shiftKey &&
+e.keyCode == 74
+) ||
+
+(
+e.ctrlKey &&
+e.keyCode == 85
+)
+
+){
+
+return false;
+}
+};
+
+setInterval(()=>{
+
+console.clear();
+
+},1000);
+
+</script>
+
+</body>
+</html>
+  
