@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>QuizRush</title>
 
@@ -29,6 +29,10 @@ rel="stylesheet">
     -webkit-tap-highlight-color:transparent;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
     min-height:100vh;
@@ -38,7 +42,7 @@ body{
     background:
     linear-gradient(
     180deg,
-    #190b38,
+    #16082f,
     #111827,
     #09111f
     );
@@ -82,12 +86,12 @@ body{
 
 .b2{
 
-    width:340px;
-    height:340px;
+    width:320px;
+    height:320px;
 
     background:#06b6d4;
 
-    right:-140px;
+    right:-120px;
     top:18%;
 }
 
@@ -98,14 +102,14 @@ body{
 
     background:#ec4899;
 
-    bottom:-100px;
+    bottom:-120px;
     left:-90px;
 }
 
 .b4{
 
-    width:240px;
-    height:240px;
+    width:260px;
+    height:260px;
 
     background:#22c55e;
 
@@ -139,9 +143,9 @@ body{
     transparent 1px
     );
 
-    background-size:40px 40px;
+    background-size:42px 42px;
 
-    opacity:0.15;
+    opacity:0.12;
 }
 
 /* CONTAINER */
@@ -167,7 +171,7 @@ body{
 
     align-items:center;
 
-    margin-bottom:24px;
+    margin-bottom:20px;
 
     animation:fadeIn 0.5s ease;
 }
@@ -176,7 +180,7 @@ body{
 
     from{
         opacity:0;
-        transform:translateY(-15px);
+        transform:translateY(-10px);
     }
 
     to{
@@ -184,6 +188,8 @@ body{
         transform:translateY(0);
     }
 }
+
+/* XP */
 
 .xp-box{
 
@@ -195,28 +201,28 @@ body{
 
     gap:10px;
 
-    padding:10px 16px;
+    padding:8px 14px;
 
     border-radius:22px;
 
     cursor:pointer;
 
     background:
-    rgba(255,255,255,0.12);
+    rgba(255,255,255,0.08);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
 
     border:
-    2px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,0.08);
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,0.3);
+    0 10px 30px rgba(0,0,0,0.25);
 }
 
 .xp-icon{
 
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
 
     border-radius:12px;
 
@@ -229,11 +235,11 @@ body{
     background:
     linear-gradient(
     135deg,
-    #facc15,
-    #fb7185
+    #06b6d4,
+    #8b5cf6
     );
 
-    font-size:16px;
+    font-size:15px;
 }
 
 .xp-info{
@@ -245,7 +251,7 @@ body{
 
 .xp-label{
 
-    font-size:10px;
+    font-size:9px;
 
     color:#cbd5e1;
 
@@ -254,28 +260,33 @@ body{
 
 .xp-value{
 
-    font-size:18px;
+    font-size:16px;
 
     font-weight:800;
-
-    line-height:1;
 }
+
+/* PROFILE */
 
 .profile{
 
-    width:56px;
-    height:56px;
+    width:50px;
+    height:50px;
 
-    border-radius:50%;
+    border-radius:18px;
 
     overflow:hidden;
 
-    border:3px solid #67e8f9;
+    border:2px solid rgba(103,232,249,0.7);
+
+    background:
+    rgba(255,255,255,0.08);
 
     box-shadow:
-    0 0 25px rgba(103,232,249,0.6);
+    0 0 20px rgba(103,232,249,0.3);
 
     animation:pulse 2s infinite;
+
+    cursor:pointer;
 }
 
 .profile img{
@@ -289,15 +300,15 @@ body{
 @keyframes pulse{
 
     0%{
-        box-shadow:0 0 10px rgba(103,232,249,0.4);
+        box-shadow:0 0 10px rgba(103,232,249,0.2);
     }
 
     50%{
-        box-shadow:0 0 30px rgba(103,232,249,0.8);
+        box-shadow:0 0 25px rgba(103,232,249,0.5);
     }
 
     100%{
-        box-shadow:0 0 10px rgba(103,232,249,0.4);
+        box-shadow:0 0 10px rgba(103,232,249,0.2);
     }
 }
 
@@ -307,12 +318,12 @@ body{
 
     text-align:center;
 
-    margin-top:10px;
+    margin-top:8px;
 }
 
 .logo{
 
-    font-size:62px;
+    font-size:60px;
 
     font-weight:800;
 
@@ -322,44 +333,31 @@ body{
     linear-gradient(
     90deg,
     #38bdf8,
-    #a855f7,
+    #8b5cf6,
     #ec4899
     );
 
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
-
-    animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-6px);
-    }
 }
 
 .subtitle{
 
     margin-top:10px;
 
-    font-size:17px;
+    color:#dbeafe;
+
+    font-size:16px;
 
     line-height:1.5;
-
-    color:#dbeafe;
 }
 
 .character{
 
     width:220px;
 
-    margin-top:20px;
+    margin-top:18px;
 
     animation:floatChar 3s ease-in-out infinite;
 }
@@ -371,7 +369,7 @@ body{
     }
 
     50%{
-        transform:translateY(-12px);
+        transform:translateY(-10px);
     }
 
     100%{
@@ -385,11 +383,9 @@ body{
 
     width:100%;
 
-    margin-top:24px;
+    margin-top:22px;
 
     border:none;
-
-    outline:none;
 
     padding:18px;
 
@@ -411,9 +407,7 @@ body{
     );
 
     box-shadow:
-    0 15px 40px rgba(139,92,246,0.4);
-
-    transition:0.2s;
+    0 15px 35px rgba(139,92,246,0.4);
 }
 
 .login-btn:active{
@@ -421,7 +415,7 @@ body{
     transform:scale(0.97);
 }
 
-/* MENU */
+/* GRID */
 
 .grid{
 
@@ -429,10 +423,12 @@ body{
 
     grid-template-columns:1fr;
 
-    gap:20px;
+    gap:18px;
 
     margin-top:26px;
 }
+
+/* CARD */
 
 .card{
 
@@ -454,28 +450,13 @@ body{
 
     cursor:pointer;
 
-    transition:0.2s;
-
     border:
-    2px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,0.08);
 
     box-shadow:
-    0 18px 40px rgba(0,0,0,0.35);
+    0 18px 40px rgba(0,0,0,0.3);
 
-    animation:cardPop 0.4s ease;
-}
-
-@keyframes cardPop{
-
-    from{
-        opacity:0;
-        transform:scale(0.9);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+    transition:0.2s;
 }
 
 .card:active{
@@ -495,7 +476,7 @@ body{
     border-radius:50%;
 
     background:
-    rgba(255,255,255,0.15);
+    rgba(255,255,255,0.12);
 
     top:-70px;
     right:-70px;
@@ -550,7 +531,7 @@ body{
     background:
     linear-gradient(
     135deg,
-    #0ea5e9,
+    #06b6d4,
     #14b8a6
     );
 }
@@ -574,11 +555,11 @@ body{
     #facc15
     );
 
-    color:#4a2b00;
+    color:#4b2500;
 }
 
 .c3 p{
-    color:#5f3700;
+    color:#5c3200;
 }
 
 .c4{
@@ -597,9 +578,9 @@ body{
 
     position:fixed;
 
-    left:0;
-    right:0;
-    bottom:0;
+    left:14px;
+    right:14px;
+    bottom:14px;
 
     z-index:100;
 
@@ -609,15 +590,22 @@ body{
 
     align-items:center;
 
-    padding:12px 10px calc(12px + env(safe-area-inset-bottom));
+    padding:12px 10px;
+
+    border-radius:30px;
 
     background:
-    rgba(11,18,32,0.88);
+    rgba(15,23,42,0.72);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(24px);
 
-    border-top:
+    -webkit-backdrop-filter:blur(24px);
+
+    border:
     1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35);
 }
 
 .nav-btn{
@@ -626,7 +614,7 @@ body{
 
     background:none;
 
-    color:white;
+    color:#dbeafe;
 
     display:flex;
 
@@ -634,21 +622,23 @@ body{
 
     align-items:center;
 
-    gap:5px;
+    gap:4px;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:700;
 
     cursor:pointer;
+
+    min-width:72px;
 }
 
 .nav-icon{
 
-    width:50px;
-    height:50px;
+    width:52px;
+    height:52px;
 
-    border-radius:16px;
+    border-radius:18px;
 
     display:flex;
 
@@ -659,7 +649,10 @@ body{
     font-size:22px;
 
     background:
-    rgba(255,255,255,0.08);
+    rgba(255,255,255,0.06);
+
+    border:
+    1px solid rgba(255,255,255,0.05);
 }
 
 .active .nav-icon{
@@ -671,9 +664,13 @@ body{
     #8b5cf6
     );
 
+    color:white;
+
     box-shadow:
-    0 10px 25px rgba(139,92,246,0.4);
+    0 10px 25px rgba(139,92,246,0.45);
 }
+
+/* DESKTOP */
 
 @media(min-width:700px){
 
@@ -691,7 +688,7 @@ body{
     }
 
     .logo{
-        font-size:82px;
+        font-size:84px;
     }
 }
 
@@ -713,14 +710,21 @@ body{
 
 <!-- AUDIO -->
 
-<audio id="bgm" loop autoplay>
+<audio id="bgm"
+loop
+playsinline>
+
 <source src="assets/audio/bgm.mp3"
 type="audio/mpeg">
+
 </audio>
 
-<audio id="click">
+<audio id="click"
+playsinline>
+
 <source src="assets/audio/click.mp3"
 type="audio/mpeg">
+
 </audio>
 
 <div class="container">
@@ -771,7 +775,7 @@ QuizRush
 </h1>
 
 <p class="subtitle">
-Battle friends, challenge bots and become the quiz champion.
+Battle friends, challenge bots and become the ultimate quiz champion.
 </p>
 
 <img class="character"
@@ -786,7 +790,7 @@ id="loginBtn">
 
 </div>
 
-<!-- GRID -->
+<!-- MENU -->
 
 <div class="grid"
 id="menu">
@@ -799,7 +803,7 @@ PLAY VS AI
 </h2>
 
 <p>
-Train against smart bots and improve your skills.
+Train against smart bots and sharpen your skills.
 </p>
 
 <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
@@ -814,7 +818,7 @@ MULTIPLAYER
 </h2>
 
 <p>
-Compete online against real players live.
+Battle online against real players worldwide.
 </p>
 
 <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
@@ -829,7 +833,7 @@ LEADERBOARD
 </h2>
 
 <p>
-See top global players and rankings.
+Check top global players and your rank.
 </p>
 
 <img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png">
@@ -844,7 +848,7 @@ FRIENDS
 </h2>
 
 <p>
-Add friends and challenge them to battles.
+Add friends and challenge them to quiz battles.
 </p>
 
 <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png">
@@ -855,13 +859,13 @@ Add friends and challenge them to battles.
 
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- NAVBAR -->
 
 <div class="bottom-nav"
 id="bottomNav">
 
 <button class="nav-btn active"
-onclick="goPage('dashboard.html')">
+onclick="goPage('index.html')">
 
 <div class="nav-icon">
 🏠
@@ -900,10 +904,6 @@ Friends
 import { initializeApp }
 from
 "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-
-import { getAnalytics }
-from
-"https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
 
 import {
 
@@ -961,8 +961,6 @@ measurementId:
 const app =
 initializeApp(firebaseConfig);
 
-getAnalytics(app);
-
 const auth =
 getAuth(app);
 
@@ -978,11 +976,46 @@ document.getElementById("bgm");
 const click =
 document.getElementById("click");
 
-bgm.volume = 1;
+bgm.volume = 0.35;
 
 click.volume = 0.7;
 
-/* SOUNDS */
+/* ENABLE MUSIC */
+
+async function startMusic(){
+
+    try{
+
+        await bgm.play();
+
+    }catch(e){
+
+        console.log(
+        "Autoplay blocked"
+        );
+    }
+}
+
+window.addEventListener(
+"load",
+startMusic
+);
+
+document.addEventListener(
+"click",
+startMusic,
+{
+once:true
+});
+
+document.addEventListener(
+"touchstart",
+startMusic,
+{
+once:true
+});
+
+/* CLICK SOUND */
 
 function playClick(){
 
@@ -1003,14 +1036,15 @@ window.goPage = function(page){
 
     if(!user){
 
-        alert("Login first");
+        alert("Login First");
 
         return;
     }
 
     setTimeout(()=>{
 
-        window.location.href = page;
+        window.location.href =
+        page;
 
     },150);
 };
@@ -1039,15 +1073,31 @@ function showUI(user,data){
     .style.display =
     "none";
 
+    const customPhoto =
+    localStorage.getItem(
+    "quizrush_photo"
+    );
+
+    const customName =
+    localStorage.getItem(
+    "quizrush_name"
+    );
+
     document
     .getElementById("profilePic")
     .src =
+    customPhoto ||
     user.photoURL;
 
     document
     .getElementById("xp")
     .innerText =
     data.xp || 0;
+
+    console.log(
+    customName ||
+    user.displayName
+    );
 }
 
 /* HIDE UI */
@@ -1123,19 +1173,18 @@ async function login(){
         const latest =
         await getDoc(ref);
 
-        const data =
-        latest.data();
+        showUI(
+        user,
+        latest.data()
+        );
 
-        showUI(user,data);
-
-        bgm.play()
-        .catch(()=>{});
+        startMusic();
 
     }catch(error){
 
-        alert(error.message);
-
         console.log(error);
+
+        alert(error.message);
     }
 }
 
@@ -1164,8 +1213,7 @@ async(user)=>{
             snap.data()
             );
 
-            bgm.play()
-            .catch(()=>{});
+            startMusic();
         }
 
     }else{
@@ -1174,34 +1222,12 @@ async(user)=>{
     }
 });
 
+/* LOGIN BUTTON */
+
 document
 .getElementById("loginBtn")
 .onclick =
 login;
-
-/* ENABLE AUDIO */
-
-document.body.addEventListener(
-"touchstart",
-()=>{
-
-    bgm.play()
-    .catch(()=>{});
-
-},{
-once:true
-});
-
-document.body.addEventListener(
-"click",
-()=>{
-
-    bgm.play()
-    .catch(()=>{});
-
-},{
-once:true
-});
 
 </script>
 
