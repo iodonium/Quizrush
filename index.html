@@ -3,21 +3,14 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>QuizRush Dashboard</title>
 
-<title>QuizRush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -32,85 +25,67 @@ rel="stylesheet">
 body{
 
     min-height:100vh;
-
     overflow-x:hidden;
-
     background:
     linear-gradient(
     180deg,
-    #12071f,
-    #0f172a,
-    #08111d
+    #17072f,
+    #101827,
+    #07111d
     );
 
     color:white;
 }
 
-/* BACKGROUND */
+/* BG */
 
 .bg{
 
     position:fixed;
     inset:0;
-    z-index:0;
     overflow:hidden;
+    z-index:0;
 }
 
 .blur{
 
     position:absolute;
-
     border-radius:50%;
-
     filter:blur(120px);
-
-    opacity:0.45;
-
-    animation:float 8s ease-in-out infinite;
+    opacity:.55;
+    animation:float 7s ease-in-out infinite;
 }
 
 .b1{
-
-    width:300px;
-    height:300px;
-
+    width:320px;
+    height:320px;
     background:#8b5cf6;
-
-    top:-120px;
-    left:-120px;
+    top:-100px;
+    left:-100px;
 }
 
 .b2{
-
     width:320px;
     height:320px;
-
     background:#06b6d4;
-
-    right:-140px;
-    top:15%;
+    top:20%;
+    right:-120px;
 }
 
 .b3{
-
-    width:240px;
-    height:240px;
-
+    width:250px;
+    height:250px;
     background:#ec4899;
-
     bottom:-80px;
     left:-80px;
 }
 
 .b4{
-
     width:220px;
     height:220px;
-
     background:#22c55e;
-
-    right:-70px;
     bottom:10%;
+    right:-80px;
 }
 
 @keyframes float{
@@ -135,13 +110,12 @@ body{
 
     background-image:
     radial-gradient(
-    rgba(255,255,255,0.8) 1px,
+    rgba(255,255,255,.9) 1px,
     transparent 1px
     );
 
-    background-size:40px 40px;
-
-    opacity:0.12;
+    background-size:38px 38px;
+    opacity:.12;
 }
 
 /* CONTAINER */
@@ -149,114 +123,99 @@ body{
 .container{
 
     position:relative;
-
     z-index:2;
-
     width:100%;
-
-    padding:16px 16px 120px;
+    padding:18px 18px 140px;
 }
 
 /* TOPBAR */
 
 .topbar{
 
-    display:none;
-
-    justify-content:space-between;
-
+    display:flex;
     align-items:center;
-
-    margin-bottom:18px;
+    justify-content:space-between;
+    margin-bottom:26px;
 }
 
 .xp-box{
 
-    border:none;
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
 
-    padding:9px 14px;
+    border:none;
+    cursor:pointer;
+
+    padding:10px 14px;
 
     border-radius:22px;
 
-    cursor:pointer;
-
     background:
-    rgba(255,255,255,0.08);
+    rgba(255,255,255,.09);
+
+    backdrop-filter:blur(18px);
 
     border:
-    1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(20px);
+    1px solid rgba(255,255,255,.08);
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,0.35);
+    0 12px 30px rgba(0,0,0,.3);
 }
 
 .xp-icon{
 
-    width:30px;
-    height:30px;
+    width:34px;
+    height:34px;
 
-    border-radius:10px;
+    border-radius:12px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     background:
     linear-gradient(
     135deg,
-    #06b6d4,
-    #8b5cf6
+    #facc15,
+    #fb7185
     );
 
-    font-size:14px;
+    font-size:15px;
 }
 
 .xp-info{
 
     display:flex;
-
     flex-direction:column;
 }
 
 .xp-label{
 
     font-size:10px;
-
     color:#cbd5e1;
-
     line-height:1;
 }
 
 .xp-value{
 
-    font-size:16px;
-
+    font-size:18px;
     font-weight:800;
+    line-height:1;
 }
 
 .profile{
 
-    width:48px;
-    height:48px;
+    width:52px;
+    height:52px;
 
     border-radius:50%;
-
     overflow:hidden;
 
-    border:2px solid #67e8f9;
+    border:3px solid #67e8f9;
 
     box-shadow:
-    0 0 18px rgba(103,232,249,0.5);
+    0 0 25px rgba(103,232,249,.5);
 
     cursor:pointer;
 }
@@ -265,7 +224,6 @@ body{
 
     width:100%;
     height:100%;
-
     object-fit:cover;
 }
 
@@ -279,21 +237,18 @@ body{
 .logo{
 
     font-size:58px;
-
     font-weight:800;
-
     line-height:1;
 
     background:
     linear-gradient(
     90deg,
     #38bdf8,
-    #8b5cf6,
+    #a855f7,
     #ec4899
     );
 
     -webkit-background-clip:text;
-
     -webkit-text-fill-color:transparent;
 }
 
@@ -301,30 +256,28 @@ body{
 
     margin-top:10px;
 
-    font-size:15px;
-
+    font-size:16px;
     line-height:1.5;
 
     color:#dbeafe;
 }
 
-.character{
+.hero-img{
 
-    width:200px;
+    width:220px;
+    margin-top:20px;
 
-    margin-top:18px;
-
-    animation:floatChar 3s ease-in-out infinite;
+    animation:heroFloat 3s ease-in-out infinite;
 }
 
-@keyframes floatChar{
+@keyframes heroFloat{
 
     0%{
         transform:translateY(0px);
     }
 
     50%{
-        transform:translateY(-10px);
+        transform:translateY(-12px);
     }
 
     100%{
@@ -332,106 +285,14 @@ body{
     }
 }
 
-/* POLICY */
-
-.policy{
-
-    margin-top:22px;
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:10px;
-
-    text-align:left;
-
-    background:
-    rgba(255,255,255,0.07);
-
-    border:
-    1px solid rgba(255,255,255,0.08);
-
-    padding:14px;
-
-    border-radius:18px;
-}
-
-.policy input{
-
-    margin-top:5px;
-
-    width:18px;
-    height:18px;
-}
-
-.policy span{
-
-    font-size:13px;
-
-    color:#dbeafe;
-}
-
-.policy a{
-
-    color:#67e8f9;
-
-    text-decoration:none;
-
-    font-weight:700;
-}
-
-/* LOGIN */
-
-.login-btn{
-
-    width:100%;
-
-    margin-top:18px;
-
-    border:none;
-
-    outline:none;
-
-    padding:17px;
-
-    border-radius:26px;
-
-    font-size:17px;
-
-    font-weight:800;
-
-    color:white;
-
-    cursor:pointer;
-
-    background:
-    linear-gradient(
-    135deg,
-    #06b6d4,
-    #8b5cf6
-    );
-
-    box-shadow:
-    0 12px 35px rgba(139,92,246,0.35);
-}
-
-.login-btn:active{
-
-    transform:scale(0.97);
-}
-
-/* MENU */
+/* GRID */
 
 .grid{
 
-    display:none;
+    margin-top:28px;
 
-    grid-template-columns:1fr;
-
+    display:grid;
     gap:18px;
-
-    margin-top:26px;
 }
 
 .card{
@@ -441,24 +302,30 @@ body{
     overflow:hidden;
 
     border:none;
+    cursor:pointer;
 
-    border-radius:32px;
+    border-radius:34px;
 
-    padding:22px;
+    min-height:205px;
 
-    min-height:200px;
+    padding:24px;
 
     text-align:left;
 
     color:white;
 
-    cursor:pointer;
-
     border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,.08);
 
     box-shadow:
-    0 18px 40px rgba(0,0,0,0.35);
+    0 20px 40px rgba(0,0,0,.35);
+
+    transition:.2s;
+}
+
+.card:active{
+
+    transform:scale(.98);
 }
 
 .card::before{
@@ -473,49 +340,50 @@ body{
     border-radius:50%;
 
     background:
-    rgba(255,255,255,0.12);
+    rgba(255,255,255,.12);
 
     top:-70px;
     right:-70px;
 }
 
-.card img{
-
-    width:100px;
-
-    position:absolute;
-
-    right:12px;
-    bottom:12px;
-}
-
 .card h2{
 
-    font-size:26px;
-
-    line-height:1.1;
-
     position:relative;
-
     z-index:2;
+
+    font-size:28px;
+    line-height:1.1;
 }
 
 .card p{
 
+    position:relative;
+    z-index:2;
+
     margin-top:10px;
 
-    font-size:14px;
-
+    font-size:15px;
     line-height:1.5;
 
-    max-width:170px;
+    max-width:180px;
 
     color:
-    rgba(255,255,255,0.92);
+    rgba(255,255,255,.9);
+}
 
-    position:relative;
+.card img{
 
-    z-index:2;
+    width:110px;
+
+    position:absolute;
+
+    right:10px;
+    bottom:8px;
+
+    filter:
+    drop-shadow(
+    0 10px 20px rgba(0,0,0,.35)
+    );
 }
 
 .c1{
@@ -544,11 +412,11 @@ body{
     #facc15
     );
 
-    color:#4a2b00;
+    color:#542f00;
 }
 
 .c3 p{
-    color:#5f3700;
+    color:#5b3900;
 }
 
 .c4{
@@ -566,74 +434,66 @@ body{
 
     position:fixed;
 
-    left:12px;
-    right:12px;
-    bottom:12px;
+    left:14px;
+    right:14px;
+    bottom:16px;
 
     z-index:100;
 
-    display:none;
+    height:78px;
 
+    border-radius:28px;
+
+    display:flex;
+    align-items:center;
     justify-content:space-around;
 
-    align-items:center;
-
-    padding:12px;
-
-    border-radius:30px;
-
     background:
-    rgba(15,23,42,0.75);
+    rgba(8,15,27,.72);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(24px);
 
     border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,.08);
 
     box-shadow:
-    0 10px 40px rgba(0,0,0,0.4);
+    0 20px 40px rgba(0,0,0,.45);
 }
 
 .nav-btn{
 
     border:none;
-
     background:none;
 
     color:white;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 
-    gap:5px;
-
-    font-size:11px;
-
-    font-weight:700;
+    gap:4px;
 
     cursor:pointer;
+
+    font-size:12px;
+    font-weight:700;
 }
 
 .nav-icon{
 
-    width:46px;
-    height:46px;
+    width:48px;
+    height:48px;
 
-    border-radius:15px;
+    border-radius:16px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    font-size:20px;
+    font-size:21px;
 
     background:
-    rgba(255,255,255,0.08);
+    rgba(255,255,255,.08);
 }
 
 .active .nav-icon{
@@ -644,21 +504,101 @@ body{
     #06b6d4,
     #8b5cf6
     );
+
+    box-shadow:
+    0 10px 25px rgba(139,92,246,.4);
+}
+
+/* LOGIN */
+
+.login-box{
+
+    margin-top:26px;
+
+    padding:24px;
+
+    border-radius:34px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+}
+
+.check{
+
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+
+    margin-top:18px;
+}
+
+.check input{
+
+    margin-top:5px;
+
+    width:18px;
+    height:18px;
+}
+
+.check label{
+
+    font-size:14px;
+    line-height:1.5;
+
+    color:#dbeafe;
+}
+
+.check a{
+
+    color:#67e8f9;
+    text-decoration:none;
+}
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    border:none;
+    outline:none;
+
+    padding:18px;
+
+    border-radius:28px;
+
+    font-size:18px;
+    font-weight:800;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #06b6d4,
+    #8b5cf6
+    );
+
+    box-shadow:
+    0 15px 35px rgba(139,92,246,.4);
 }
 
 @media(min-width:700px){
 
     .container{
-
         max-width:760px;
-
         margin:auto;
     }
 
     .grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
@@ -679,22 +619,20 @@ body{
 </div>
 
 <audio id="bgm" loop>
-<source src="assets/audio/bgm.mp3"
-type="audio/mpeg">
+<source src="assets/audio/bgm.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="click">
-<source src="assets/audio/click.mp3"
-type="audio/mpeg">
+<source src="assets/audio/click.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
-<div class="topbar"
-id="topbar">
+<!-- TOP -->
 
-<button class="xp-box"
-onclick="goPage('leaderboard.html')">
+<div class="topbar">
+
+<button class="xp-box" onclick="goPage('leaderboard.html')">
 
 <div class="xp-icon">
 ⭐
@@ -706,8 +644,7 @@ onclick="goPage('leaderboard.html')">
 XP
 </div>
 
-<div class="xp-value"
-id="xp">
+<div class="xp-value" id="xp">
 0
 </div>
 
@@ -715,15 +652,16 @@ id="xp">
 
 </button>
 
-<div class="profile"
-onclick="goPage('settings.html')">
+<div class="profile" onclick="goPage('settings.html')">
 
 <img id="profilePic"
-src="assets/images/default.png">
+src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
 </div>
 
 </div>
+
+<!-- HERO -->
 
 <div class="hero">
 
@@ -732,32 +670,34 @@ QuizRush
 </h1>
 
 <p class="subtitle">
-Battle friends, challenge bots and become the quiz champion.
+Battle friends, challenge bots and become quiz champion.
 </p>
 
-<img class="character"
-src="assets/images/hero.png">
+<img class="hero-img"
+src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
-<div id="loginArea">
+</div>
 
-<div class="policy">
+<!-- LOGIN -->
 
-<input type="checkbox"
-id="policyCheck">
+<div class="login-box" id="loginBox">
 
-<span>
+<div class="check">
 
-I accept the
+<input type="checkbox" id="policy">
+
+<label for="policy">
+
+I agree to the
 <a href="privacy.html">
 Privacy Policy
 </a>
 
-</span>
+</label>
 
 </div>
 
-<button class="login-btn"
-id="loginBtn">
+<button class="login-btn" id="loginBtn">
 
 🚀 LOGIN WITH GOOGLE
 
@@ -765,10 +705,9 @@ id="loginBtn">
 
 </div>
 
-</div>
+<!-- MENU -->
 
-<div class="grid"
-id="menu">
+<div class="grid">
 
 <button class="card c1"
 onclick="goPage('computer.html')">
@@ -778,10 +717,10 @@ PLAY VS AI
 </h2>
 
 <p>
-Train against smart bots and improve your quiz skills.
+Train against smart quiz bots and improve skills.
 </p>
 
-<img src="assets/images/ai.png">
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
 
 </button>
 
@@ -793,10 +732,10 @@ MULTIPLAYER
 </h2>
 
 <p>
-Battle real players online in live quiz matches.
+Battle real online players in live matches.
 </p>
 
-<img src="assets/images/multiplayer.png">
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
 
 </button>
 
@@ -808,10 +747,10 @@ LEADERBOARD
 </h2>
 
 <p>
-Check world rankings and top players.
+See top players and global rankings.
 </p>
 
-<img src="assets/images/trophy.png">
+<img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png">
 
 </button>
 
@@ -823,10 +762,10 @@ FRIENDS
 </h2>
 
 <p>
-Add friends and challenge them anytime.
+Add friends and challenge them to quiz battles.
 </p>
 
-<img src="assets/images/friends.png">
+<img src="https://cdn-icons-png.flaticon.com/512/681/681494.png">
 
 </button>
 
@@ -834,11 +773,12 @@ Add friends and challenge them anytime.
 
 </div>
 
-<div class="bottom-nav"
-id="bottomNav">
+<!-- NAV -->
+
+<div class="bottom-nav">
 
 <button class="nav-btn active"
-onclick="goPage('index.html')">
+onclick="goPage('dashboard.html')">
 
 <div class="nav-icon">
 🏠
@@ -924,10 +864,8 @@ messagingSenderId:
 "556058248851",
 
 appId:
-"1:556058248851:web:132044a66f3095646c6f66",
+"1:556058248851:web:132044a66f3095646c6f66"
 
-measurementId:
-"G-Y71J98XK25"
 };
 
 const app =
@@ -948,9 +886,23 @@ document.getElementById("bgm");
 const click =
 document.getElementById("click");
 
-bgm.volume = 0.45;
+bgm.volume = 0.4;
 
 click.volume = 0.7;
+
+/* AUDIO */
+
+function startMusic(){
+
+    bgm.play()
+    .catch(()=>{});
+}
+
+document.body.addEventListener(
+"click",
+startMusic,
+{ once:true }
+);
 
 function sound(){
 
@@ -960,95 +912,37 @@ function sound(){
     .catch(()=>{});
 }
 
+/* NAV */
+
 window.goPage = function(page){
 
     sound();
-
-    if(!auth.currentUser){
-
-        alert("Login Required");
-
-        return;
-    }
 
     setTimeout(()=>{
 
         window.location.href = page;
 
-    },120);
+    },150);
 };
 
-function showUI(data){
+/* LOGIN */
 
-    document
-    .getElementById("topbar")
-    .style.display =
-    "flex";
-
-    document
-    .getElementById("menu")
-    .style.display =
-    "grid";
-
-    document
-    .getElementById("bottomNav")
-    .style.display =
-    "flex";
-
-    document
-    .getElementById("loginArea")
-    .style.display =
-    "none";
-
-    document
-    .getElementById("xp")
-    .innerText =
-    data.xp || 0;
-
-    document
-    .getElementById("profilePic")
-    .src =
-    data.photo ||
-    auth.currentUser.photoURL ||
-    "assets/images/default.png";
-}
-
-function hideUI(){
-
-    document
-    .getElementById("topbar")
-    .style.display =
-    "none";
-
-    document
-    .getElementById("menu")
-    .style.display =
-    "none";
-
-    document
-    .getElementById("bottomNav")
-    .style.display =
-    "none";
-
-    document
-    .getElementById("loginArea")
-    .style.display =
-    "block";
-}
-
-async function login(){
+document
+.getElementById("loginBtn")
+.onclick =
+async function(){
 
     sound();
 
-    const accepted =
+    const checked =
     document
-    .getElementById("policyCheck")
+    .getElementById("policy")
     .checked;
 
-    if(!accepted){
+    if(!checked){
 
         alert(
-        "Accept Privacy Policy"
+        "Accept Privacy Policy first"
         );
 
         return;
@@ -1080,93 +974,64 @@ async function login(){
             await setDoc(ref,{
 
                 name:
-                user.displayName || "",
+                user.displayName || "Player",
 
                 photo:
-                user.photoURL || "",
+                user.photoURL ||
+                "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
 
                 xp:0,
 
-                acceptedPolicy:true,
+                privacyAccepted:true,
 
                 createdAt:
                 Date.now()
+
             });
         }
 
-        const latest =
-        await getDoc(ref);
-
-        showUI(
-        latest.data()
-        );
-
-        bgm.play()
-        .catch(()=>{});
+        location.reload();
 
     }catch(error){
 
         alert(error.message);
     }
-}
+};
+
+/* LOAD */
 
 onAuthStateChanged(
 auth,
 async(user)=>{
 
-    if(user){
+    if(!user)return;
 
-        const ref =
-        doc(
-        db,
-        "users",
-        user.uid
-        );
+    const ref =
+    doc(
+    db,
+    "users",
+    user.uid
+    );
 
-        const snap =
-        await getDoc(ref);
+    const snap =
+    await getDoc(ref);
 
-        if(snap.exists()){
+    if(snap.exists()){
 
-            showUI(
-            snap.data()
-            );
+        const data =
+        snap.data();
 
-            bgm.play()
-            .catch(()=>{});
-        }
+        document
+        .getElementById("xp")
+        .innerText =
+        data.xp || 0;
 
-    }else{
-
-        hideUI();
+        document
+        .getElementById("profilePic")
+        .src =
+        data.photo ||
+        "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
     }
-});
-
-document
-.getElementById("loginBtn")
-.onclick =
-login;
-
-document.body.addEventListener(
-"click",
-()=>{
-
-    bgm.play()
-    .catch(()=>{});
-
-},{
-once:true
-});
-
-document.body.addEventListener(
-"touchstart",
-()=>{
-
-    bgm.play()
-    .catch(()=>{});
-
-},{
-once:true
 });
 
 </script>
